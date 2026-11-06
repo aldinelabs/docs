@@ -5,7 +5,7 @@
     "": {
       "name": "aldine-docs",
       "dependencies": {
-        "@aldine/ui": "github:aldinelabs/ui#9b493c4",
+        "@aldine/ui": "github:aldinelabs/ui#36936fd",
         "@astrojs/markdown-remark": "7.3.2",
         "@astrojs/sitemap": "3.7.4",
         "@fontsource-variable/inter": "5.3.0",
@@ -26,7 +26,7 @@
     "@emnapi/runtime": "1.11.3",
   },
   "packages": {
-    "@aldine/ui": ["@aldine/ui@github:aldinelabs/ui#9b493c4", { "peerDependencies": { "@fontsource-variable/inter": ">=5", "@fontsource-variable/jetbrains-mono": ">=5", "@lucide/astro": ">=1", "@tailwindcss/vite": ">=4", "astro": ">=7", "tailwindcss": ">=4" } }, "aldinelabs-ui-9b493c4"],
+    "@aldine/ui": ["@aldine/ui@github:aldinelabs/ui#36936fd", { "peerDependencies": { "@fontsource-variable/inter": ">=5", "@fontsource-variable/jetbrains-mono": ">=5", "@lucide/astro": ">=1", "@tailwindcss/vite": ">=4", "astro": ">=7", "tailwindcss": ">=4" } }, "aldinelabs-ui-36936fd"],
 
     "@astrojs/astro2tsx": ["@astrojs/astro2tsx@0.1.3", "", { "dependencies": { "@emnapi/core": "1.11.3", "@napi-rs/wasm-runtime": "1.2.4" } }, "sha512-GMDC7Eo0myBUA/QLBl0u+OcegJ8LiBhccmNZR34KmprQNP8gQUJlWlOOZWUsxNA2rNS6GuPYcGDyLoPnjmn4/Q=="],
 
