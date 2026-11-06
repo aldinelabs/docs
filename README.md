@@ -38,6 +38,19 @@ Keep pages small and focused (one task or topic each). Group related pages in a 
 
 When a change in the software alters the interface or a documented flow, update the page here in the same cycle and link the two pull requests to each other.
 
+### Deploying
+
+The site is static and is hosted on Tencent EdgeOne Pages at **docs.aldine.cn**; every push to `main` is built and published.
+
+| Setting | Value |
+| --- | --- |
+| Root directory | Repository root |
+| Build command | `bun install --frozen-lockfile && bun run check:content && bun run build` |
+| Output directory | `dist` |
+| Environment variable | `SITE_URL` = `https://docs.aldine.cn` |
+
+Needs Node 22.12 or newer and Bun 1.3.4 (see `engines` and `packageManager` in `package.json`). `SITE_URL` sets canonical URLs and the sitemap at build time. Run `bun run dev` to work locally and `bun run check` for type checks.
+
 ---
 
 ## 简体中文
@@ -73,3 +86,16 @@ Aldine Labs 软件的用户文档，发布在 **docs.aldine.cn**。
 ### 与软件保持同步
 
 软件的改动影响了界面或已记录的流程时，在同一个周期内更新这里的对应页面，并让两边的 PR 互相链接。
+
+### 部署
+
+站点是纯静态的，托管在腾讯云 EdgeOne Pages 的 **docs.aldine.cn**；每次推送到 `main` 都会构建并发布。
+
+| 设置 | 值 |
+| --- | --- |
+| 根目录 | 仓库根目录 |
+| 构建命令 | `bun install --frozen-lockfile && bun run check:content && bun run build` |
+| 输出目录 | `dist` |
+| 环境变量 | `SITE_URL` = `https://docs.aldine.cn` |
+
+需要 Node 22.12 及以上和 Bun 1.3.4（见 `package.json` 的 `engines` 与 `packageManager`）。`SITE_URL` 决定构建时的 canonical 地址和站点地图。本地用 `bun run dev` 开发，`bun run check` 做类型检查。
