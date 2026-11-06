@@ -1,7 +1,11 @@
 ---
 import { locales, type Locale } from '@aldine/ui/i18n';
 import DocsLayout from '../../../layouts/DocsLayout.astro';
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import ChevronRight from '@lucide/astro/icons/chevron-right';
+import { button } from '@aldine/ui/ui';
 import { docUrl, getDocs, treeOf } from '../../../lib/docs';
+import { ui } from '../../../lib/strings';
 import { products } from '../../../products';
 
 export function getStaticPaths() {
@@ -11,32 +15,47 @@ export function getStaticPaths() {
 const { locale, product } = Astro.params as { locale: Locale; product: string };
 const info = products[product];
 const tree = treeOf(await getDocs(), product, locale);
+const text = ui[locale];
+const first = tree[0]?.doc;
 ---
 
 <DocsLayout title={info.name} description={info.description[locale]} product={product}>
 	<h1 class="mb-3 text-4xl font-medium tracking-tight">{info.name}</h1>
-	<p class="mb-10 text-lg text-muted-foreground">{info.description[locale]}</p>
-	<ul class="grid gap-4 sm:grid-cols-2">
+	<p class="max-w-2xl text-lg text-muted-foreground">{info.description[locale]}</p>
+	{
+		first && (
+			<a href={docUrl(locale, product, first.slug)} class:list={[button.primary, 'mt-6 h-9 px-4']}>
+				{text.startHere}
+				<ArrowRight class="size-4" aria-hidden="true" />
+			</a>
+		)
+	}
+
+	<div class="mt-12 flex flex-col gap-12">
 		{
 			tree.map(({ doc, children }) => (
-				<li class="rounded-3xl border p-6">
-					<a href={docUrl(locale, product, doc.slug)} class="block outline-none hover:underline">
-						<span class="block text-xl font-medium">{doc.title}</span>
-					</a>
-					<p class="mt-1 text-sm text-muted-foreground">{doc.description}</p>
-					{children.length > 0 && (
-						<ul class="mt-4 flex flex-col gap-1 text-sm">
-							{children.map((child) => (
-								<li>
-									<a href={docUrl(locale, product, child.slug)} class="text-foreground/70 hover:text-foreground hover:underline">
-										{child.title}
-									</a>
-								</li>
-							))}
-						</ul>
-					)}
-				</li>
+				<section aria-labelledby={`group-${doc.slug}`}>
+					<h2 id={`group-${doc.slug}`} class="text-xl font-medium tracking-tight">
+						<a href={docUrl(locale, product, doc.slug)} class="hover:underline hover:underline-offset-4">
+							{doc.title}
+						</a>
+					</h2>
+					<p class="mt-1 mb-4 text-sm text-muted-foreground">{doc.description}</p>
+					<ul class="divide-y overflow-hidden rounded-2xl border">
+						{children.map((child) => (
+							<li>
+								<a href={docUrl(locale, product, child.slug)} class="group flex items-center gap-4 px-4 py-3.5 outline-none transition-colors hover:bg-accent focus-visible:bg-accent">
+									<span class="min-w-0 flex-1">
+										<span class="block text-sm font-medium">{child.title}</span>
+										<span class="mt-0.5 block text-sm text-muted-foreground">{child.description}</span>
+									</span>
+									<ChevronRight class="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
 			))
 		}
-	</ul>
+	</div>
 </DocsLayout>
