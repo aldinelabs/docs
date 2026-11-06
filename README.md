@@ -13,17 +13,21 @@ User documentation for Aldine Labs software, published at **docs.aldine.cn**.
 ```text
 <product>/
   zh-CN/    Simplified Chinese pages
-  en/       English pages
+    <group>/index.md   A group's own page: a short intro and links to its pages
+    <group>/<page>.md  One topic per page
+  en/       English pages, same paths as zh-CN
   images/   Screenshots shared by both languages
 ```
 
+Keep pages small and focused (one task or topic each). Group related pages in a folder; the folder's `index.md` is the group's page. The sidebar is built from this tree, ordered by `order` in the front matter. Pages link to each other as relative `.md` paths; the site rewrites them to URLs. The language switcher on the site links the two versions, so pages do not link to each other themselves.
+
 | Product | Pages |
 | --- | --- |
-| Pine | [简体中文](./pine/zh-CN/getting-started.md) · [English](./pine/en/getting-started.md) |
+| Pine | [简体中文](./pine/zh-CN/getting-started/index.md) · [English](./pine/en/getting-started/index.md) |
 
 ### Writing rules
 
-- Every page exists in both languages, with the same sections in the same order. Link the two versions to each other at the top of the page.
+- Every page exists in both languages at the same path, with the same sections in the same order.
 - Pine's interface text: in Chinese pages write `中文（English）` using the text from Pine's zh-CN language pack; in English pages use the en-US text. Text on third-party sites stays as it appears there.
 - Screenshots are WebP, 1400 px wide, with a red box and a number on each element to click (numbers follow the order of the steps). Redact names, emails, balances, keys, and IP addresses before saving.
 - Never put API keys, passwords, or personal data in a page or a screenshot.
@@ -45,17 +49,21 @@ Aldine Labs 软件的用户文档，发布在 **docs.aldine.cn**。
 ```text
 <产品>/
   zh-CN/    简体中文页面
-  en/       英文页面
+    <分组>/index.md   分组自己的页面：简短介绍和各页面的链接
+    <分组>/<页面>.md  每页一个主题
+  en/       英文页面，路径与 zh-CN 一致
   images/   两种语言共用的截图
 ```
 
+页面保持小而聚焦（每页一个任务或主题）。相关页面放进同一个文件夹，文件夹的 `index.md` 就是该分组的页面。侧栏按这棵树生成，顺序由 front matter 的 `order` 决定。页面之间用相对的 `.md` 路径互相链接，站点会改写成网址。站点的语言切换负责连接中英两个版本，页面里不需要互相链接。
+
 | 产品 | 页面 |
 | --- | --- |
-| Pine | [简体中文](./pine/zh-CN/getting-started.md) · [English](./pine/en/getting-started.md) |
+| Pine | [简体中文](./pine/zh-CN/getting-started/index.md) · [English](./pine/en/getting-started/index.md) |
 
 ### 写作约定
 
-- 每个页面都要有中英文两个版本，章节和顺序一致，页首互相链接。
+- 每个页面都要有中英文两个版本，路径一致、章节和顺序一致。
 - Pine 的界面文案：中文页面写成「中文（English）」，中文取自 Pine 的 zh-CN 语言包；英文页面用 en-US 原文。第三方网站上的文案保持它们本来的样子。
 - 截图用 WebP，宽 1400 px，在要点击的位置画红框并标上序号（序号就是步骤顺序）。保存前要对姓名、邮箱、余额、密钥和 IP 地址做脱敏。
 - 页面和截图里不要出现 API Key、密码或个人数据。
