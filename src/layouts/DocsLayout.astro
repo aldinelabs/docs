@@ -1,0 +1,124 @@
+---
+import Base from '@aldine/ui/layouts/Base.astro';
+import { localeFromUrl, localize, type Locale } from '@aldine/ui/i18n';
+import { container } from '@aldine/ui/ui';
+import '../styles/docs.css';
+import { docUrl, getDocs, treeOf, type Doc } from '../lib/docs';
+import { ui } from '../lib/strings';
+import { products } from '../products';
+import DocsTree from '../components/DocsTree.astro';
+import { brand, homeHref, footer, nav, organization } from '../site';
+
+interface Heading {
+	depth: number;
+	slug: string;
+	text: string;
+}
+
+interface Props {
+	title: string;
+	description: string;
+	/** Product whose pages fill the sidebar; omit for pages outside a product. */
+	product?: string;
+	/** The page being shown, for the active sidebar entry, previous/next and the edit link. */
+	current?: Doc;
+	headings?: Heading[];
+	alternates?: Partial<Record<Locale, string>>;
+	noindex?: boolean;
+	/** Apply long-form reading styles; only for Markdown pages. */
+	prose?: boolean;
+}
+
+const { title, description, product, current, headings = [], alternates, noindex, prose = false } = Astro.props;
+const locale = localeFromUrl(Astro.url);
+const text = ui[locale];
+const tree = product ? treeOf(await getDocs(), product, locale) : [];
+const siblings = tree.flatMap((node) => [node.doc, ...node.children]);
+const position = current ? siblings.findIndex((d) => d.slug === current.slug) : -1;
+const previous = position > 0 ? siblings[position - 1] : undefined;
+const next = position >= 0 ? siblings[position + 1] : undefined;
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+const hasSidebar = Boolean(product);
+---
+
+<Base
+	title={title}
+	description={description}
+	siteTitle={text.siteTitle}
+	alternates={alternates}
+	noindex={noindex}
+	organization={organization}
+	image={brand.image}
+	icons={brand.icons}
+	logo={brand.logo}
+	nav={nav(locale)}
+	homeHref={homeHref(locale)}
+	footer={footer(locale)}
+>
+	<div class:list={[container, 'py-10', hasSidebar && 'grid gap-x-12 gap-y-8 lg:grid-cols-[15rem_minmax(0,1fr)] xl:grid-cols-[15rem_minmax(0,1fr)_14rem]']}>
+		{
+			hasSidebar && (
+				<aside class="lg:sticky lg:top-24 lg:max-h-[calc(100svh-8rem)] lg:self-start lg:overflow-y-auto" aria-label={text.contents}>
+					<p class="mb-3 hidden px-3 text-sm font-medium lg:block">{products[product!]?.name}</p>
+					<details class="group rounded-2xl border lg:hidden">
+						<summary class="flex h-10 cursor-pointer list-none items-center px-3 text-sm font-medium [&::-webkit-details-marker]:hidden">{text.contents}</summary>
+						<div class="p-1.5 pt-0">
+							<DocsTree tree={tree} locale={locale} current={current?.slug} />
+						</div>
+					</details>
+					<div class="hidden lg:block">
+						<DocsTree tree={tree} locale={locale} current={current?.slug} />
+					</div>
+				</aside>
+			)
+		}
+
+		<article class="min-w-0 max-w-3xl">
+			<div class:list={{ prose }}><slot /></div>
+			{
+				current && (
+					<p class="mt-12 text-sm text-muted-foreground">
+						<a href={`https://github.com/aldinelabs/docs/edit/main/${current.source}`} class="underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground">
+							{text.edit}
+						</a>
+					</p>
+				)
+			}
+			{
+				(previous || next) && (
+					<nav class="mt-8 grid gap-3 border-t pt-8 sm:grid-cols-2" aria-label="Pagination">
+						{previous ? (
+							<a href={docUrl(locale, previous.product, previous.slug)} class="rounded-2xl border p-4 hover:bg-accent">
+								<span class="block text-xs text-muted-foreground">{text.previous}</span>
+								<span class="font-medium">{previous.title}</span>
+							</a>
+						) : (
+							<span />
+						)}
+						{next && (
+							<a href={docUrl(locale, next.product, next.slug)} class="rounded-2xl border p-4 text-right hover:bg-accent">
+								<span class="block text-xs text-muted-foreground">{text.next}</span>
+								<span class="font-medium">{next.title}</span>
+							</a>
+						)}
+					</nav>
+				)
+			}
+		</article>
+
+		{
+			hasSidebar && toc.length > 0 && (
+				<aside class="toc hidden xl:sticky xl:top-24 xl:block xl:max-h-[calc(100svh-8rem)] xl:self-start xl:overflow-y-auto" aria-label={text.onThisPage}>
+					<p class="mb-3 text-sm font-medium">{text.onThisPage}</p>
+					<ul class="flex flex-col gap-1.5 border-l pl-3 text-sm">
+						{toc.map((h) => (
+							<li class:list={[h.depth === 3 && 'pl-3']}>
+								<a href={`#${h.slug}`} class="text-muted-foreground transition-colors hover:text-foreground">{h.text}</a>
+							</li>
+						))}
+					</ul>
+				</aside>
+			)
+		}
+	</div>
+</Base>

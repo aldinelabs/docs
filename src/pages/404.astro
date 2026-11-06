@@ -1,0 +1,10 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+import { ui } from '../lib/strings';
+---
+
+<DocsLayout title={ui.en.notFound} description={ui.en.notFoundHint} noindex>
+	<h1 class="mb-3 text-3xl font-medium">{ui.en.notFound}</h1>
+	<p class="mb-6 text-muted-foreground">{ui.en.notFoundHint}</p>
+	<p><a href="/en/" class="underline underline-offset-4">{ui.en.backHome}</a> · <a href="/zh/" class="underline underline-offset-4">{ui.zh.backHome}</a></p>
+</DocsLayout>

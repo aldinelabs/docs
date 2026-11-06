@@ -1,0 +1,15 @@
+/* Rules for documentation pages. The theme and `.prose` come from @aldine/ui. */
+
+.prose img {
+	border: 1px solid var(--border);
+}
+
+/* Screenshots are wide; keep them inside the column. */
+.prose p > img {
+	display: block;
+}
+
+/* Page layout helpers. */
+.toc a[aria-current='true'] {
+	color: var(--foreground);
+}

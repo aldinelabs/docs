@@ -1,0 +1,24 @@
+---
+import { render } from 'astro:content';
+import type { Locale } from '@aldine/ui/i18n';
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+import { docUrl, getDocs } from '../../../lib/docs';
+
+export async function getStaticPaths() {
+	const docs = await getDocs();
+	return docs.map((doc) => {
+		// The same page in the other language, where it exists.
+		const alternates: Partial<Record<Locale, string>> = {};
+		for (const other of docs)
+			if (other.product === doc.product && other.slug === doc.slug) alternates[other.locale] = docUrl(other.locale, other.product, other.slug);
+		return { params: { locale: doc.locale, product: doc.product, slug: doc.slug }, props: { doc, alternates } };
+	});
+}
+
+const { doc, alternates } = Astro.props;
+const { Content, headings } = await render(doc.entry);
+---
+
+<DocsLayout title={doc.title} description={doc.description} product={doc.product} current={doc} headings={headings} alternates={alternates} prose>
+	<Content />
+</DocsLayout>

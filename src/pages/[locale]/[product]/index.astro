@@ -1,0 +1,42 @@
+---
+import { locales, type Locale } from '@aldine/ui/i18n';
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+import { docUrl, getDocs, treeOf } from '../../../lib/docs';
+import { products } from '../../../products';
+
+export function getStaticPaths() {
+	return locales.flatMap((locale) => Object.keys(products).map((product) => ({ params: { locale, product } })));
+}
+
+const { locale, product } = Astro.params as { locale: Locale; product: string };
+const info = products[product];
+const tree = treeOf(await getDocs(), product, locale);
+---
+
+<DocsLayout title={info.name} description={info.description[locale]} product={product}>
+	<h1 class="mb-3 text-4xl font-medium tracking-tight">{info.name}</h1>
+	<p class="mb-10 text-lg text-muted-foreground">{info.description[locale]}</p>
+	<ul class="grid gap-4 sm:grid-cols-2">
+		{
+			tree.map(({ doc, children }) => (
+				<li class="rounded-3xl border p-6">
+					<a href={docUrl(locale, product, doc.slug)} class="block outline-none hover:underline">
+						<span class="block text-xl font-medium">{doc.title}</span>
+					</a>
+					<p class="mt-1 text-sm text-muted-foreground">{doc.description}</p>
+					{children.length > 0 && (
+						<ul class="mt-4 flex flex-col gap-1 text-sm">
+							{children.map((child) => (
+								<li>
+									<a href={docUrl(locale, product, child.slug)} class="text-foreground/70 hover:text-foreground hover:underline">
+										{child.title}
+									</a>
+								</li>
+							))}
+						</ul>
+					)}
+				</li>
+			))
+		}
+	</ul>
+</DocsLayout>

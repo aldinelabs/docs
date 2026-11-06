@@ -1,0 +1,34 @@
+---
+import { locales, type Locale } from '@aldine/ui/i18n';
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import { docUrl, getDocs, pagesOf } from '../../lib/docs';
+import { ui } from '../../lib/strings';
+import { products } from '../../products';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const text = ui[locale];
+const docs = await getDocs();
+const cards = Object.entries(products).map(([id, product]) => ({ id, product, pages: pagesOf(docs, id, locale) }));
+---
+
+<DocsLayout title={text.siteTitle} description={text.siteDescription}>
+	<h1 class="mb-3 text-4xl font-medium tracking-tight">{text.docs}</h1>
+	<p class="mb-10 text-lg text-muted-foreground">{text.siteDescription}</p>
+	<ul class="grid gap-4 sm:grid-cols-2">
+		{
+			cards.map(({ id, product, pages }) => (
+				<li class="rounded-3xl border p-6 hover:bg-accent/50">
+					<a href={`/${locale}/${id}/`} class="block outline-none">
+						<span class="block text-xl font-medium">{product.name}</span>
+						<span class="mt-1 block text-sm text-muted-foreground">{product.description[locale]}</span>
+						<span class="mt-4 block text-xs text-muted-foreground">{text.pages(pages.length)}</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</DocsLayout>

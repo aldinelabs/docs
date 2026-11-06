@@ -1,0 +1,47 @@
+---
+import type { Locale } from '@aldine/ui/i18n';
+import { docUrl, type TreeNode } from '../lib/docs';
+
+interface Props {
+	tree: TreeNode[];
+	locale: Locale;
+	/** Slug of the page being shown. */
+	current?: string;
+}
+
+const { tree, locale, current } = Astro.props;
+const link = 'block rounded-2xl px-3 py-1.5 text-sm hover:bg-accent aria-[current=page]:bg-accent aria-[current=page]:font-medium';
+---
+
+<nav>
+	<ul class="flex flex-col gap-4">
+		{
+			tree.map(({ doc, children }) => (
+				<li>
+					<a
+						href={docUrl(locale, doc.product, doc.slug)}
+						aria-current={doc.slug === current ? 'page' : undefined}
+						class:list={[link, 'font-medium', children.length === 0 && 'text-foreground/70']}
+					>
+						{doc.title}
+					</a>
+					{children.length > 0 && (
+						<ul class="mt-0.5 ml-3 flex flex-col gap-0.5 border-l pl-1.5">
+							{children.map((child) => (
+								<li>
+									<a
+										href={docUrl(locale, child.product, child.slug)}
+										aria-current={child.slug === current ? 'page' : undefined}
+										class:list={[link, 'text-foreground/70 aria-[current=page]:text-foreground']}
+									>
+										{child.title}
+									</a>
+								</li>
+							))}
+						</ul>
+					)}
+				</li>
+			))
+		}
+	</ul>
+</nav>
