@@ -17,15 +17,15 @@ const cards = Object.entries(products).map(([id, product]) => ({ id, product, pa
 
 <DocsLayout title={text.siteTitle} description={text.siteDescription}>
 	<h1 class="mb-3 text-4xl font-medium tracking-tight">{text.docs}</h1>
-	<p class="mb-10 text-lg text-muted-foreground">{text.siteDescription}</p>
+	<p class="mb-10 text-xl text-muted-foreground">{text.siteDescription}</p>
 	<ul class="grid gap-4 sm:grid-cols-2">
 		{
 			cards.map(({ id, product, pages }) => (
 				<li class="rounded-3xl border p-6 hover:bg-accent/50">
 					<a href={`/${locale}/${id}/`} class="block outline-none">
-						<span class="block text-xl font-medium">{product.name}</span>
-						<span class="mt-1 block text-sm text-muted-foreground">{product.description[locale]}</span>
-						<span class="mt-4 block text-xs text-muted-foreground">{text.pages(pages.length)}</span>
+						<span class="block text-2xl font-medium">{product.name}</span>
+						<span class="mt-1.5 block text-base text-muted-foreground">{product.description[locale]}</span>
+						<span class="mt-4 block text-sm text-muted-foreground">{text.pages(pages.length)}</span>
 					</a>
 				</li>
 			))

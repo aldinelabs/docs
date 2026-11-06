@@ -21,10 +21,10 @@ const first = tree[0]?.doc;
 
 <DocsLayout title={info.name} description={info.description[locale]} product={product}>
 	<h1 class="mb-3 text-4xl font-medium tracking-tight">{info.name}</h1>
-	<p class="max-w-2xl text-lg text-muted-foreground">{info.description[locale]}</p>
+	<p class="max-w-2xl text-xl text-muted-foreground">{info.description[locale]}</p>
 	{
 		first && (
-			<a href={docUrl(locale, product, first.slug)} class:list={[button.primary, 'mt-6 h-9 px-4']}>
+			<a href={docUrl(locale, product, first.slug)} class:list={[button.primary, 'mt-8 h-10 px-5 text-base']}>
 				{text.startHere}
 				<ArrowRight class="size-4" aria-hidden="true" />
 			</a>
@@ -35,19 +35,19 @@ const first = tree[0]?.doc;
 		{
 			tree.map(({ doc, children }) => (
 				<section aria-labelledby={`group-${doc.slug}`}>
-					<h2 id={`group-${doc.slug}`} class="text-xl font-medium tracking-tight">
+					<h2 id={`group-${doc.slug}`} class="text-2xl font-medium tracking-tight">
 						<a href={docUrl(locale, product, doc.slug)} class="hover:underline hover:underline-offset-4">
 							{doc.title}
 						</a>
 					</h2>
-					<p class="mt-1 mb-4 text-sm text-muted-foreground">{doc.description}</p>
+					<p class="mt-1.5 mb-5 text-base text-muted-foreground">{doc.description}</p>
 					<ul class="divide-y overflow-hidden rounded-2xl border">
 						{children.map((child) => (
 							<li>
-								<a href={docUrl(locale, product, child.slug)} class="group flex items-center gap-4 px-4 py-3.5 outline-none transition-colors hover:bg-accent focus-visible:bg-accent">
+								<a href={docUrl(locale, product, child.slug)} class="group flex items-center gap-4 px-5 py-4 outline-none transition-colors hover:bg-accent focus-visible:bg-accent">
 									<span class="min-w-0 flex-1">
-										<span class="block text-sm font-medium">{child.title}</span>
-										<span class="mt-0.5 block text-sm text-muted-foreground">{child.description}</span>
+										<span class="block text-base font-medium">{child.title}</span>
+										<span class="mt-1 block text-[0.9375rem] leading-snug text-muted-foreground">{child.description}</span>
 									</span>
 									<ChevronRight class="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
 								</a>
