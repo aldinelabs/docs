@@ -13,3 +13,60 @@
 .toc a[aria-current='true'] {
 	color: var(--foreground);
 }
+
+/*
+ * Documentation type scale. The shared `.prose` is tuned for long articles (17px body, 36px
+ * h1); next to the 14px sidebar and table of contents that is too large, so docs pages use a
+ * tighter scale: 15px body, 30 / 22 / 18 / 16px headings.
+ */
+article .prose {
+	font-size: 0.9375rem;
+	line-height: 1.7;
+}
+
+article .prose :where(p, ul, ol, blockquote, pre, table, figure, img, video, iframe) {
+	margin-block: 1.125rem;
+}
+
+article .prose h1 {
+	margin: 0 0 1.25rem;
+	font-size: 1.875rem;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+}
+
+article .prose h2 {
+	margin: 2.5rem 0 0.75rem;
+	padding-top: 0.25rem;
+	font-size: 1.375rem;
+	line-height: 1.3;
+}
+
+article .prose h3 {
+	margin: 2rem 0 0.5rem;
+	font-size: 1.125rem;
+	line-height: 1.4;
+}
+
+article .prose :where(h4, h5, h6) {
+	margin: 1.5rem 0 0.5rem;
+	font-size: 1rem;
+}
+
+article .prose :where(li) {
+	margin-block: 0.375rem;
+}
+
+article .prose :where(table) {
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+article .prose :where(pre) {
+	font-size: 0.8125rem;
+}
+
+/* Callouts follow the body size, as shadcn-vue's Alert does. */
+article .prose [data-slot='alert'] {
+	font-size: 0.875rem;
+}
