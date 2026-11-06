@@ -24,7 +24,13 @@ bun run build:server
 PINE_PASSWORD='至少 8 个字符' node apps/desktop/.vite/server/server.mjs
 ```
 
-构建产物在 `apps/desktop/.vite/server/`：`server.mjs`、Agent worker（`agent.mjs` 及其分块）和浏览器界面（`renderer/`）。Pi 等运行时依赖从仓库的 `node_modules` 加载，所以要在仓库目录内运行，或把仓库连同依赖一起部署。
+构建产物在 `apps/desktop/.vite/server/`，包括：
+
+- `server.mjs`
+- Agent worker（`agent.mjs` 及其分块）
+- 浏览器界面（`renderer/`）
+
+Pi 等运行时依赖从仓库的 `node_modules` 加载，所以要在仓库目录内运行，或把仓库连同依赖一起部署。
 
 `node apps/desktop/.vite/server/server.mjs --help` 列出全部选项：
 
@@ -68,7 +74,11 @@ WantedBy=multi-user.target
 
 ## 经 Aldine 远程控制
 
-无头服务端可以像桌面端一样经 Aldine 远程控制：手机或另一台电脑的浏览器打开 `rc.aldine.cn`，配对后即可使用服务器上的 Pine，服务器无需公网地址或端口转发。服务端的网页界面和密码照常工作（配对的设备相当于一个已登录的浏览器）。
+无头服务端可以像桌面端一样经 Aldine 远程控制：
+
+- 手机或另一台电脑的浏览器打开 `rc.aldine.cn`，配对后即可使用服务器上的 Pine。
+- 服务器无需公网地址或端口转发。
+- 服务端的网页界面和密码照常工作（配对的设备相当于一个已登录的浏览器）。
 
 ```sh
 PINE_PASSWORD=... node apps/desktop/.vite/server/server.mjs --pair
@@ -99,7 +109,13 @@ PINE_PASSWORD=... node apps/desktop/.vite/server/server.mjs --pair
 
 ## Linux 沙箱
 
-Linux 上普通 `bash` 和文件工具在 bubblewrap 里运行：只能读系统运行时目录（`/usr`、`/lib*`、证书和少数 `/etc` 文件）和项目授权的文件夹，只能写可写文件夹，没有网络。命令使用 `bash --noprofile --norc`，不读取用户的启动文件。和 macOS 的区别：
+Linux 上普通 `bash` 和文件工具在 bubblewrap 里运行：
+
+- 只能读系统运行时目录（`/usr`、`/lib*`、证书和少数 `/etc` 文件）和项目授权的文件夹。
+- 只能写可写文件夹，没有网络。
+- 命令使用 `bash --noprofile --norc`，不读取用户的启动文件。
+
+和 macOS 的区别：
 
 - 写到 `/tmp` 等授权以外位置的文件落在每次命令独立的临时文件系统里，命令结束即消失，不会写到主机上；macOS 上这类写入直接失败。项目内的临时文件请用 `$TMPDIR`。
 - bubblewrap 需要非特权用户命名空间。部分主机和容器默认禁止，此时服务端启动时会打印提示，Agent 只能通过需要审批的 `privileged_bash` 执行命令。在 Docker 中运行时加上：

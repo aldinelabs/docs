@@ -20,4 +20,8 @@ On first launch, Pine first sets up the **Windows sandbox** (it keeps the agent'
 
 ## Choose a language
 
-Pine's interface supports Simplified Chinese, Traditional Chinese, English, Japanese, Korean, Spanish, French, German, and Russian. If it isn't in the language you want: click the **gear (Open Pine settings)** at the top-left or top-right of the window → **General → Language**, and pick one from the drop-down.
+Pine's interface supports Simplified Chinese, Traditional Chinese, English, Japanese, Korean, Spanish, French, German, and Russian. If it isn't in the language you want:
+
+1. Click the **gear (Open Pine settings)** at the top-left or top-right of the window.
+2. Go to **General → Language**.
+3. Pick one from the drop-down.

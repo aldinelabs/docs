@@ -15,11 +15,20 @@ order: 1
 
 DeepSeek 的 **API 平台**（`platform.deepseek.com`）和它的网页聊天（`chat.deepseek.com`）是两套东西：网页聊天免费，不需要充值；**API 按用量计费，要先充值，再创建 Key**。
 
-**第 1 步：登录或注册。** 打开 [platform.deepseek.com](https://platform.deepseek.com)。已有账号直接输入手机号或邮箱和密码登录（②）；没有账号点右下的 **Sign up**（①）注册，也可以用下方的 "Log in with Google"。
+**第 1 步：登录或注册**
+
+- 打开 [platform.deepseek.com](https://platform.deepseek.com)。
+- 已有账号：输入手机号或邮箱和密码登录（②）。
+- 没有账号：点右下的 **Sign up**（①）注册；也可以用下方的 "Log in with Google"。
 
 ![DeepSeek 平台登录页，① 为 Sign up，② 为 Log in](../../images/getting-started/deepseek-sign-in.webp)
 
-**第 2 步：充值。** 登录后进入控制台。点左侧 **Top up**（①）。如果页面顶部有 **USD / CNY** 的币种切换，选 **CNY**（②）；国内账号可能没有这个切换，直接就是人民币。接着选择金额（③，¥10 起，也可以选 Custom 自定义），选择**支付宝（Alipay）或微信支付（WeChat Pay）**（④），再点 **Next step**（⑤）按页面提示完成支付。
+**第 2 步：充值**
+
+- 登录后进入控制台，点左侧 **Top up**（①）。
+- 如果页面顶部有 **USD / CNY** 的币种切换，选 **CNY**（②）。国内账号可能没有这个切换，直接就是人民币。
+- 选择金额（③，¥10 起，也可以选 Custom 自定义）。
+- 选择**支付宝（Alipay）或微信支付（WeChat Pay）**（④），再点 **Next step**（⑤），按页面提示完成支付。
 
 ![DeepSeek 充值页（CNY）](../../images/getting-started/deepseek-top-up-cny.webp)
 
@@ -28,7 +37,9 @@ DeepSeek 的 **API 平台**（`platform.deepseek.com`）和它的网页聊天（
 - 充值后可以在左侧 **Billing** 页面申请发票。
 - 刚开始试用，充小额即可。想了解各模型的价格，点左侧的 **Pricing**。
 
-**第 3 步：创建 API Key。** 点左侧 **API keys**（①），再点右上的 **Create new API key**（②）。
+**第 3 步：创建 API Key**
+
+- 点左侧 **API keys**（①），再点右上的 **Create new API key**（②）。
 
 ![DeepSeek API keys 页面](../../images/getting-started/deepseek-api-keys.webp)
 
@@ -43,23 +54,35 @@ DeepSeek 的 **API 平台**（`platform.deepseek.com`）和它的网页聊天（
 
 ## 在 Pine 里连接 DeepSeek
 
-**第 1 步：打开模型控件。** 打开一个新会话，点输入框右下角的 **选择模型（Choose model）**（①）。
+**第 1 步：打开模型控件**
+
+- 打开一个新会话，点输入框右下角的 **选择模型（Choose model）**（①）。
 
 ![Pine 输入框右下角的“选择模型（Choose model）”](../../images/getting-started/pine-01-choose-model.webp)
 
-**第 2 步：浏览全部模型。** 还没有连接任何提供商时，下拉里只有 **浏览所有模型…（Browse all models…）**（②），点它。
+**第 2 步：浏览全部模型**
+
+- 还没有连接任何提供商时，下拉里只有 **浏览所有模型…（Browse all models…）**（②），点它。
 
 ![“选择模型（Choose model）”下拉菜单](../../images/getting-started/pine-02-model-picker.webp)
 
-**第 3 步：管理提供商。** 在弹出的窗口里点 **管理服务或模型（Manage providers and models）**（③）。
+**第 3 步：管理提供商**
+
+- 在弹出的窗口里点 **管理服务或模型（Manage providers and models）**（③）。
 
 ![模型选择窗口](../../images/getting-started/pine-03-manage-providers.webp)
 
-**第 4、5 步：找到 DeepSeek。** 在顶部搜索框（④）输入 `deepseek`，点击出现的 **DeepSeek**（⑤）。
+**第 4、5 步：找到 DeepSeek**
+
+- 在顶部搜索框（④）输入 `deepseek`。
+- 点击出现的 **DeepSeek**（⑤）。
 
 ![搜索 DeepSeek 提供商](../../images/getting-started/pine-05-search-deepseek.webp)
 
-**第 6、7 步：粘贴 Key。** 在 **连接 DeepSeek（Connect DeepSeek）** 对话框里，把刚才复制的 API Key 粘贴到输入框（⑥），点 **继续（Continue）**（⑦）。
+**第 6、7 步：粘贴 Key**
+
+- 在 **连接 DeepSeek（Connect DeepSeek）** 对话框里，把刚才复制的 API Key 粘贴到输入框（⑥）。
+- 点 **继续（Continue）**（⑦）。
 
 ![“连接 DeepSeek（Connect DeepSeek）”对话框](../../images/getting-started/pine-06-connect-deepseek.webp)
 
@@ -74,7 +97,10 @@ DeepSeek 的 **API 平台**（`platform.deepseek.com`）和它的网页聊天（
 
 ## 使用提示
 
-- DeepSeek 目前主要有 `deepseek-flash`（速度快、便宜）和 `deepseek-v4-pro`（能力更强）两类模型，官方的最新模型名与价格见 [DeepSeek API 文档](https://api-docs.deepseek.com/)。Pine 的模型目录随版本更新，列表里看到的名字以 Pine 为准。
+- DeepSeek 目前主要有两类模型：
+  - `deepseek-flash`：速度快、便宜。
+  - `deepseek-v4-pro`：能力更强。
+- 官方的最新模型名与价格见 [DeepSeek API 文档](https://api-docs.deepseek.com/)。Pine 的模型目录随版本更新，列表里看到的名字以 Pine 为准。
 - 先用较便宜的模型把流程跑通，需要更强能力时再切换。
 - 在输入框底部的 **上下文占用（Context usage）** 里可以看到本次会话的费用，并设置 **会话成本上限（Session cost limit）**（会话费用上限），到达上限会自动停止。
 - 如果你使用的是自建网关或第三方聚合服务，不在内置列表里，可以在同一个窗口选择 **添加自定义模型（Add custom model）**，填写接口地址（例如 DeepSeek 的 OpenAI 兼容地址 `https://api.deepseek.com`）、Key 和模型名。

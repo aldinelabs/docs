@@ -24,7 +24,13 @@ bun run build:server
 PINE_PASSWORD='at least 8 characters' node apps/desktop/.vite/server/server.mjs
 ```
 
-The build output is in `apps/desktop/.vite/server/`: `server.mjs`, the agent worker (`agent.mjs` and its chunks), and the browser interface (`renderer/`). Runtime dependencies such as Pi are loaded from the repository's `node_modules`, so run it from inside the repository, or deploy the repository together with its dependencies.
+The build output is in `apps/desktop/.vite/server/` and consists of:
+
+- `server.mjs`
+- The agent worker (`agent.mjs` and its chunks)
+- The browser interface (`renderer/`)
+
+Runtime dependencies such as Pi are loaded from the repository's `node_modules`, so run it from inside the repository, or deploy the repository together with its dependencies.
 
 `node apps/desktop/.vite/server/server.mjs --help` lists all options:
 
@@ -68,7 +74,11 @@ WantedBy=multi-user.target
 
 ## Remote control through Aldine
 
-A headless server can be controlled remotely through Aldine just like the desktop app: open `rc.aldine.cn` in the browser on a phone or another computer, pair, and use the Pine on the server, with no public address or port forwarding needed on the server. The server's web interface and password keep working as usual (a paired device acts as an already-signed-in browser).
+A headless server can be controlled remotely through Aldine just like the desktop app:
+
+- Open `rc.aldine.cn` in the browser on a phone or another computer, pair, and use the Pine on the server.
+- The server needs no public address or port forwarding.
+- The server's web interface and password keep working as usual (a paired device acts as an already-signed-in browser).
 
 ```sh
 PINE_PASSWORD=... node apps/desktop/.vite/server/server.mjs --pair
@@ -99,7 +109,13 @@ PINE_PASSWORD=... node apps/desktop/.vite/server/server.mjs --pair
 
 ## Linux sandbox
 
-On Linux, ordinary `bash` and file tools run inside bubblewrap: they can only read the system runtime directories (`/usr`, `/lib*`, certificates, and a few `/etc` files) and the folders the project authorizes, can only write to writable folders, and have no network. Commands use `bash --noprofile --norc` and don't read the user's startup files. Differences from macOS:
+On Linux, ordinary `bash` and file tools run inside bubblewrap:
+
+- They can only read the system runtime directories (`/usr`, `/lib*`, certificates, and a few `/etc` files) and the folders the project authorizes.
+- They can only write to writable folders, and have no network.
+- Commands use `bash --noprofile --norc` and don't read the user's startup files.
+
+Differences from macOS:
 
 - Files written outside authorized locations, such as `/tmp`, land in a per-command temporary filesystem that disappears when the command ends and is never written to the host; on macOS such writes simply fail. For temporary files inside the project, use `$TMPDIR`.
 - bubblewrap needs unprivileged user namespaces. Some hosts and containers forbid them by default; in that case the server prints a notice at startup, and the agent can only run commands through the `privileged_bash` tool, which requires approval. When running in Docker, add:

@@ -15,11 +15,20 @@ Without a connected model Pine can't answer anything, so this is the most import
 
 DeepSeek's **API platform** (`platform.deepseek.com`) and its web chat (`chat.deepseek.com`) are two separate things. Web chat is free and needs no top-up; the **API is billed by usage, so you top up first and then create a key**.
 
-**Step 1: Sign in or sign up.** Open [platform.deepseek.com](https://platform.deepseek.com). If you already have an account, enter your phone number or email and password to sign in (②); if not, click **Sign up** at the bottom right (①). You can also use "Log in with Google" below.
+**Step 1: Sign in or sign up**
+
+- Open [platform.deepseek.com](https://platform.deepseek.com).
+- If you already have an account, enter your phone number or email and password to sign in (②).
+- If not, click **Sign up** at the bottom right (①); you can also use "Log in with Google" below.
 
 ![DeepSeek platform sign-in page: ① Sign up, ② Log in](../../images/getting-started/deepseek-sign-in.webp)
 
-**Step 2: Top up.** After signing in you land in the console. Click **Top up** on the left (①), choose an amount (②; the page offers tiers starting at $2, lets you switch between USD and CNY, or lets you pick Custom), choose a payment method (③), then click **Next step** (④) and follow the page to pay.
+**Step 2: Top up**
+
+- After signing in you land in the console. Click **Top up** on the left (①).
+- Choose an amount (②). The page offers tiers starting at $2, lets you switch between USD and CNY, or lets you pick Custom.
+- Choose a payment method (③).
+- Click **Next step** (④) and follow the page to pay.
 
 ![DeepSeek top-up page](../../images/getting-started/deepseek-top-up.webp)
 
@@ -27,7 +36,9 @@ DeepSeek's **API platform** (`platform.deepseek.com`) and its web chat (`chat.de
 - Credit usually arrives instantly. The page says it may take up to 24–72 hours; if it still hasn't arrived after that, follow the page to contact support.
 - A small top-up is enough to start. To see each model's price, click **Pricing** on the left.
 
-**Step 3: Create an API key.** Click **API keys** on the left (①), then **Create new API key** at the top right (②).
+**Step 3: Create an API key**
+
+- Click **API keys** on the left (①), then **Create new API key** at the top right (②).
 
 ![DeepSeek API keys page](../../images/getting-started/deepseek-api-keys.webp)
 
@@ -42,23 +53,35 @@ After it's created, the page shows the full key (starting with `sk-`) **only thi
 
 ## Connect DeepSeek in Pine
 
-**Step 1: Open the model control.** Open a new session and click **Choose model** at the bottom right of the input box (①).
+**Step 1: Open the model control**
+
+- Open a new session and click **Choose model** at the bottom right of the input box (①).
 
 ![Choose model at the bottom right of Pine's input box](../../images/getting-started/pine-01-choose-model.webp)
 
-**Step 2: Browse all models.** Before any provider is connected, the drop-down contains only **Browse all models…** (②). Click it.
+**Step 2: Browse all models**
+
+- Before any provider is connected, the drop-down contains only **Browse all models…** (②). Click it.
 
 ![Choose model drop-down](../../images/getting-started/pine-02-model-picker.webp)
 
-**Step 3: Manage providers.** In the window that appears, click **Manage providers and models** (③).
+**Step 3: Manage providers**
+
+- In the window that appears, click **Manage providers and models** (③).
 
 ![Model picker window](../../images/getting-started/pine-03-manage-providers.webp)
 
-**Steps 4 and 5: Find DeepSeek.** Type `deepseek` in the search box at the top (④), then click **DeepSeek** when it appears (⑤).
+**Steps 4 and 5: Find DeepSeek**
+
+- Type `deepseek` in the search box at the top (④).
+- Click **DeepSeek** when it appears (⑤).
 
 ![Searching for the DeepSeek provider](../../images/getting-started/pine-05-search-deepseek.webp)
 
-**Steps 6 and 7: Paste the key.** In the **Connect DeepSeek** dialog, paste the API key you just copied into the input (⑥) and click **Continue** (⑦).
+**Steps 6 and 7: Paste the key**
+
+- In the **Connect DeepSeek** dialog, paste the API key you just copied into the input (⑥).
+- Click **Continue** (⑦).
 
 ![Connect DeepSeek dialog](../../images/getting-started/pine-06-connect-deepseek.webp)
 
@@ -73,7 +96,10 @@ Once connected, DeepSeek's models appear in the model list. Go back to the sessi
 
 ## Tips
 
-- DeepSeek currently offers mainly `deepseek-flash` (fast and cheap) and `deepseek-v4-pro` (more capable). For the latest model names and prices, see the [DeepSeek API docs](https://api-docs.deepseek.com/). Pine's model catalog updates with each release, and the names you see in the list are the ones Pine knows.
+- DeepSeek currently offers mainly two kinds of models:
+  - `deepseek-flash`: fast and cheap.
+  - `deepseek-v4-pro`: more capable.
+- For the latest model names and prices, see the [DeepSeek API docs](https://api-docs.deepseek.com/). Pine's model catalog updates with each release, and the names you see in the list are the ones Pine knows.
 - Get the flow working with a cheaper model first, and switch to a stronger one when you need it.
 - **Context usage** at the bottom of the input box shows this session's cost and lets you set a **Session cost limit**; when the limit is reached, the session stops automatically.
 - If you use a self-hosted gateway or a third-party aggregator that isn't in the built-in list, choose **Add custom model** in the same window and fill in the endpoint address (for example DeepSeek's OpenAI-compatible address `https://api.deepseek.com`), the key, and the model name.

@@ -8,18 +8,31 @@ order: 2
 
 Models can't browse the web on their own. To let Pine's AI **search the web and read page contents**, you also need a **TinyFish** API key. This step is optional, but strongly recommended.
 
-**Step 1: Sign up and sign in.** Open [agent.tinyfish.ai](https://agent.tinyfish.ai). You can sign up with GitHub, Google, Microsoft, an X account, or email. If a cookie notice appears at the bottom of the page, choose according to your preference.
+**Step 1: Sign up and sign in**
 
-**Step 2: Skip the onboarding.** A new account lands on a "Connect TinyFish" onboarding page that asks you to copy a "setup prompt" to some AI agent. **Pine doesn't need this step**; just click **Skip setup** at the top right.
+- Open [agent.tinyfish.ai](https://agent.tinyfish.ai).
+- You can sign up with GitHub, Google, Microsoft, an X account, or email.
+- If a cookie notice appears at the bottom of the page, choose according to your preference.
+
+**Step 2: Skip the onboarding**
+
+- A new account lands on a "Connect TinyFish" onboarding page that asks you to copy a "setup prompt" to some AI agent.
+- **Pine doesn't need this step**; just click **Skip setup** at the top right.
 
 > [!WARNING]
 > The setup prompt on that onboarding page contains your full API key. Don't screenshot or share it.
 
-**Step 3: View and copy the key.** Click **API Keys** on the left (①). A new account gets a key automatically, hidden by default; click the eye icon (②) to reveal it and **Copy** (③) to copy it.
+**Step 3: View and copy the key**
+
+- Click **API Keys** on the left (①). A new account gets a key automatically, hidden by default.
+- Click the eye icon (②) to reveal it.
+- Click **Copy** (③) to copy it.
 
 ![TinyFish API keys page](../../images/getting-started/tinyfish-api-key.webp)
 
-**Step 4: Enter it in Pine.** Click the gear **Open Pine settings** at the top right of Pine (①):
+**Step 4: Enter it in Pine**
+
+- Click the gear **Open Pine settings** at the top right of Pine (①):
 
 ![Settings button at the top right of Pine](../../images/getting-started/pine-tf-01-settings.webp)
 
