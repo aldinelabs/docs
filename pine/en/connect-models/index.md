@@ -12,4 +12,4 @@ Without a connected model Pine can't answer anything, so start with the first pa
 - [Web search and fetching (TinyFish)](web-search.md): let Pine search and fetch web pages
 - [Image and video generation, and automatic approval (OpenRouter)](media-generation.md): enable image generation, video generation, and the automatic-approval screening model
 
-When that's done, continue with [Using Pine](../using-pine/index.md).
+When that's done, continue with [Using Pine](../using-pine.md).

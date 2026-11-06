@@ -21,7 +21,7 @@ const link = 'block rounded-2xl px-3 py-2 text-[0.9375rem] leading-snug hover:bg
 					<a
 						href={docUrl(locale, doc.product, doc.slug)}
 						aria-current={doc.slug === current ? 'page' : undefined}
-						class:list={[link, 'font-medium', children.length === 0 && 'text-foreground/70']}
+						class={`${link} font-medium`}
 					>
 						{doc.title}
 					</a>

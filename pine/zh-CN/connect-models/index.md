@@ -12,4 +12,4 @@ order: 20
 - [网页搜索与抓取（TinyFish）](web-search.md)：让 Pine 能搜索和抓取网页
 - [图片/视频生成与自动审批（OpenRouter）](media-generation.md)：启用图片生成、视频生成和自动审批的筛选模型
 
-配置好后，继续[使用 Pine](../using-pine/index.md)。
+配置好后，继续[使用 Pine](../using-pine.md)。
