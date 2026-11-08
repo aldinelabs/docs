@@ -56,6 +56,10 @@ When a decision is needed, an **Approval required** card appears above the input
 - **Reject**: refuse it;
 - **Reject with guidance**: refuse and tell it what to do instead.
 
+For **Computer Use**, permission covers computer control for the current task. **Let Me Review** asks once at the first control action; **Auto Approve** and **Autonomous Work** review that task permission automatically. After approval, ordinary clicks, typing, scrolling, switching apps, and browser navigation continue without individual reviews. The permission expires when the run finishes, you use **Stop response**, or you change approval mode; reopening a session does not restore it. OS permission requests and browser extension installation still need separate approval.
+
+The agent is instructed to pause before payments, sending messages, publishing, irreversible deletion, security changes, or sharing sensitive information with a new recipient unless you already authorized the specific action. This relies on the executing model's judgment; Pine does not independently check the risk of each click. Computer control can reach apps and browser content outside the project folders.
+
 Also:
 
 - The agent's local tools are restricted to the folders you authorize.
