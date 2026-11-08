@@ -66,6 +66,8 @@ Also:
 - For delete and write actions, check that the path on the approval card is what you expect.
 - Files you "move to Trash" in a browser aren't deleted outright (the server version moves them into `trash/` under the data directory).
 
+Tool call details show the model that actually reviewed an action, including fallback attempts and their errors.
+
 ## Optional settings
 
 None of these are required; come back to them when you need them. For a full explanation of each one, see [Advanced configuration](configuration/index.md).
@@ -75,7 +77,7 @@ None of these are required; come back to them when you need them. For a full exp
 | Change interface language, display currency, completion sound, notifications | Gear → **General** |
 | Light / dark mode, accent color, reading font | Gear → **Appearance** |
 | Models for title generation, approval, and image generation | Gear → **Models** |
-| Web search and fetching (TinyFish key), context compaction, approximate location | Gear → **Agent** |
+| Interactive answers (enabled by default), web search and fetching (TinyFish key), context compaction, approximate location | Gear → **Agent** |
 | Nickname, communication style, custom instructions (so the agent knows you better) | Gear → **User profile** |
 | Global shortcut to bring up the quick composer | Gear → **General → Quick composer** |
 | Keep running in the background after closing the window (so automations keep working) | Gear → **General → Keep running in the background** |
@@ -83,6 +85,14 @@ None of these are required; come back to them when you need them. For a full exp
 | Skills (reusable ways of working) | Bottom of the left sidebar: **Skills** |
 | MCP servers (connect external tools) | Bottom of the left sidebar: **MCP servers** |
 | Use Pine on this computer remotely from a phone or another device | Gear → **Remote control** (QR-code pairing, no port forwarding, end-to-end encrypted; turn on Browser access first) |
+
+### Remote Control on phones and the Home Screen
+
+For pairing, prefer the system QR scanner (usually the Camera app) and the native browser. Avoid scanners in apps with embedded browsers, such as WeChat, Alipay, or QQ.
+
+If you added Pine Remote to your Home Screen, open that app, tap **Scan pairing code**, allow camera access, and scan a code generated on your computer under **Settings → Remote control via Aldine → Pair a device**. This saves the computer in the Home Screen app. Safari and the Home Screen app may keep separate device records, so pair in each place where you want to use Pine.
+
+While connected, tap **Switch computer** to return to the computer list, choose another computer, or scan a new code. Remote sessions keep the conversation's saved approval mode, shared with the desktop. On phones, swipe horizontally across the todo and background-task cards below the messages.
 
 **Common shortcuts** (`Cmd` on macOS, `Ctrl` on Windows):
 
