@@ -40,6 +40,9 @@ Click the gear in the title bar to open **Pine Settings**. The sections are cove
 To connect models, see [Connect models](../connect-models/index.md). These options choose which model does Pine's supporting work:
 
 - **Model catalogs**: **Refresh now** fetches the latest model lists from configured providers.
+- **Pi providers (CC Switch)** (desktop app only): with **Use providers from Pi** on (off by default), Pine adds the providers in Pi's `models.json` (as set up in Pi or CC Switch) and follows changes to the file within a moment. By default it reads the file under `PI_CODING_AGENT_DIR` or `~/.pi/agent`; **Show in folder** reveals it, **Choose folder…** picks another location, and **Use default folder** switches back. The section shows how many providers were added, and which were skipped and why.
+  - Pine only reads this file: these providers cannot be edited, signed in to or removed in Pine; change them in Pi or CC Switch. They carry a "Pi" badge in the model picker, and their IDs start with `pi-`.
+  - A provider whose key or header is written as a `!command` is skipped; Pine never runs it.
 - **Title generation model**: names new sessions.
 - **Approval model**: reviews tool calls in **Auto Approve** and **Autonomous Work**, and explains operations plainly when it hands a call to you. See [Approvals and automatic review](approvals.md).
 - **Image generation model** and **Video generation model**: used when the agent generates images or video; they need OpenRouter. See [Media generation](../connect-models/media-generation.md).

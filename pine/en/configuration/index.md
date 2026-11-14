@@ -30,7 +30,7 @@ Click the gear in the title bar to open **Pine Settings**. The sections are list
 | --- | --- | --- |
 | **General** | Language, currency, Monet mode, completion signal, notifications, quick composer, running in the background, diagnostic logging | [Settings reference](settings.md) |
 | **Appearance** | Color mode, default color theme, Working glow, sidebar material, inverted documents | [Settings reference](settings.md) |
-| **Models** | Model catalog refresh, title generation, approval, image and video generation, Decisions screening model | [Settings reference](settings.md) |
+| **Models** | Model catalog refresh, Pi providers, title generation, approval, image and video generation, Decisions screening model | [Settings reference](settings.md) |
 | **Agent** | Interactive answers, Interim answers, automatic approval path, context compaction, web tools, approximate location | [Settings reference](settings.md) |
 | **User profile** | Nickname, pronouns, communication style, technical background, personal details, custom instructions | [Settings reference](settings.md) |
 | **Projects** | Every project and its data usage; clearing temporary files and attachments | [Settings reference](settings.md) |
