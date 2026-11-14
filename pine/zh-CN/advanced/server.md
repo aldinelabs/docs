@@ -98,6 +98,39 @@ PINE_PASSWORD=... node apps/desktop/.vite/server/server.mjs --pair
   移除后设备再也无法连接。`--data-dir` / `PINE_DATA_DIR` 与运行时一致。
 - 设备不能再配对其他设备：配对只能由终端发起。
 
+## 微信远程
+
+服务端也可以接入[微信远程](../configuration/wechat.md)，让一台常开的机器随时接收微信里的任务。连接需要交互式终端，因为要显示二维码并输入微信发来的配对码：
+
+```sh
+PINE_PASSWORD=... node apps/desktop/.vite/server/server.mjs --wechat-bind
+```
+
+终端会显示二维码；用手机微信扫码并确认，再在微信里给机器人发任意一条消息，把它回复的 6 位配对码输入终端。以服务方式运行时，先停止服务，在前台运行一次完成连接（Docker 用 `docker run -it`）；之后正常启动即可，连接保存在数据目录里。
+
+查看状态、断开和修改设置用 `wechat` 子命令，`--data-dir` / `PINE_DATA_DIR` 与运行时一致：
+
+```sh
+node apps/desktop/.vite/server/server.mjs wechat status
+node apps/desktop/.vite/server/server.mjs wechat unbind
+node apps/desktop/.vite/server/server.mjs wechat config --ceiling auto-approve --default-project none
+```
+
+| `wechat config` 选项 | 作用 |
+| --- | --- |
+| `--ceiling <模式>` | 最高审批模式：`let-me-review`、`auto-approve`、`autonomous` 或 `yolo` |
+| `--default-mode <模式>` | 从微信新建会话时的审批模式，不能高于最高审批模式 |
+| `--default-project <id 或 none>` | `.new` 新建会话所在的项目；`none` 为临时工作区 |
+| `--allow-high-risk <yes 或 no>` | 是否允许从微信批准高风险操作 |
+| `--allow-files <yes 或 no>` | 是否允许向微信发送文件 |
+| `--language <zh、en 或 auto>` | 微信里回复的语言 |
+| `--pause` / `--resume` | 暂停 / 恢复处理微信消息 |
+
+运行中的服务端在收到 `SIGHUP`（`kill -HUP <pid>`）或重启时应用修改。登录失效需要重新扫码时，日志会提示，按上面的方式在终端里再运行一次 `--wechat-bind`。
+
+> [!WARNING]
+> 最高或默认审批模式设为 `yolo` 时，命令会打印警告：任何进入该微信账号的人都能控制这台服务器。
+
 ## 与桌面端的差异
 
 - 数据目录与桌面端分开，默认不共享项目和会话；可以用 `--data-dir` 指向任意目录，但不要让桌面端和服务端同时使用同一个目录。
