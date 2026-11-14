@@ -98,6 +98,39 @@ PINE_PASSWORD=... node apps/desktop/.vite/server/server.mjs --pair
   A removed device can never connect again. `--data-dir` / `PINE_DATA_DIR` must match what the server runs with.
 - A device can't pair other devices: pairing can only be started from the terminal.
 
+## WeChat remote
+
+A server can also take [WeChat remote](../configuration/wechat.md), so an always-on machine receives tasks from WeChat at any time. Connecting needs an interactive terminal, because it shows a QR code and asks for the code WeChat sends:
+
+```sh
+PINE_PASSWORD=... node apps/desktop/.vite/server/server.mjs --wechat-bind
+```
+
+The terminal shows a QR code; scan it with WeChat on your phone and confirm, then send any message to the bot in WeChat and type the 6-digit pairing code it replies with into the terminal. When Pine runs as a service, stop the service and run it once in the foreground to connect (with Docker, use `docker run -it`); after that, start it as usual. The connection is kept in the data directory.
+
+Check the status, disconnect and change settings with the `wechat` subcommand; `--data-dir` / `PINE_DATA_DIR` must match what the server runs with:
+
+```sh
+node apps/desktop/.vite/server/server.mjs wechat status
+node apps/desktop/.vite/server/server.mjs wechat unbind
+node apps/desktop/.vite/server/server.mjs wechat config --ceiling auto-approve --default-project none
+```
+
+| `wechat config` option | What it does |
+| --- | --- |
+| `--ceiling <mode>` | Highest approval mode: `let-me-review`, `auto-approve`, `autonomous` or `yolo` |
+| `--default-mode <mode>` | Approval mode of sessions started from WeChat, never above the ceiling |
+| `--default-project <id or none>` | Project `.new` starts sessions in; `none` is the temporary workspace |
+| `--allow-high-risk <yes or no>` | Whether high-risk actions can be approved from WeChat |
+| `--allow-files <yes or no>` | Whether files can be sent to WeChat |
+| `--language <zh, en or auto>` | Language of the replies in WeChat |
+| `--pause` / `--resume` | Stop / resume acting on WeChat messages |
+
+A running server applies a change when it receives `SIGHUP` (`kill -HUP <pid>`) or restarts. When the login expires and WeChat needs a new scan, the log says so; run `--wechat-bind` in a terminal again as above.
+
+> [!WARNING]
+> Setting the ceiling or default mode to `yolo` prints a warning: anyone who gets into that WeChat account controls this server.
+
 ## Differences from the desktop app
 
 - The data directory is separate from the desktop app's, and projects and sessions aren't shared by default. You can point `--data-dir` at any directory, but don't let the desktop app and the server use the same one at the same time.
