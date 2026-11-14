@@ -10,7 +10,7 @@ order: 40
 
 ### Updates
 
-When a new version is available, Pine shows an **update dialog** with what's new and lets you install it. You can also go back to the download page at any time, download the latest installer, and install over the old version; your data isn't lost.
+When a new version is available, Pine shows an **update dialog** with what's new and lets you install it. When an update spans several versions, the dialog lists the notes of each one, newest first. You can also go back to the download page at any time, download the latest installer, and install over the old version; your data isn't lost.
 
 ### Data location
 

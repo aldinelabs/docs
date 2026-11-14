@@ -40,6 +40,9 @@ order: 1
 模型的连接方法见[连接模型](../connect-models/index.md)。这里的选项决定各种辅助工作由哪个模型完成：
 
 - **模型目录（Model catalogs）**：点 **立即刷新（Refresh now）** 拉取已配置提供商的最新模型列表。
+- **Pi 供应商（CC Switch）（Pi providers (CC Switch)）**（仅桌面端）：开启 **使用 Pi 的供应商（Use providers from Pi）**（默认关闭）后，Pine 会添加 Pi 的 `models.json` 中配置的供应商（在 Pi 或 CC Switch 中设置），文件改动后片刻内自动跟随。默认读取 `PI_CODING_AGENT_DIR` 或 `~/.pi/agent` 下的文件；可以 **在文件夹中显示（Show in folder）**，用 **选择文件夹…（Choose folder…）** 换一个位置，再用 **使用默认文件夹（Use default folder）** 改回。这里会显示已添加的供应商数量，以及被跳过的供应商和原因。
+  - Pine 只读取这个文件：这些供应商不能在 Pine 中修改、登录或移除，请在 Pi 或 CC Switch 中修改。它们在模型选择器中带有“Pi”标记，ID 以 `pi-` 开头。
+  - 密钥或请求头写成 `!命令` 形式的供应商会被跳过，Pine 不会执行其中的命令。
 - **标题生成模型（Title generation model）**：为新会话起标题。
 - **审批模型（Approval model）**：在 **自动审批（Auto Approve）** 和 **自主工作（Autonomous Work）** 模式下审核工具调用，并在把调用交给你时用白话解读操作。详见[审批与自动审核](approvals.md)。
 - **图像生成模型（Image generation model）**、**视频生成模型（Video generation model）**：智能体生成图片或视频时使用，需要先配置 OpenRouter，见[媒体生成](../connect-models/media-generation.md)。

@@ -13,7 +13,7 @@ order: 3
 - **Edit message**: editing one of your messages resends it from that point.
 - **Todos**: when the agent keeps a task list, a progress card sits above the composer and opens **All todos** with a dependency graph. Once every task is completed, the card disappears when the turn ends.
 - **Background processes**: long-running processes the agent starts appear in a card and in the workbench, with their command and output, and can be stopped while running.
-- **Waiting note**: when about 3 seconds pass after sending without any reply, reasoning or tool call, a note says Pine is still waiting for the model provider; if it stays for tens of seconds, check your network and the provider's status.
+- **Waiting note**: when about 5 seconds pass after sending without any reply, reasoning or tool call, a note says Pine is still waiting for the model provider; if it stays for tens of seconds, check your network and the provider's status.
 
 ## Quotes, follow-ups and side chats
 
