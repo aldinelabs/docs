@@ -64,7 +64,7 @@ Also:
 
 ## Optional settings
 
-None of these are required; come back to them when you need them.
+None of these are required; come back to them when you need them. For a full explanation of each one, see [Advanced configuration](configuration/index.md).
 
 | What you want to do | Where |
 | --- | --- |
