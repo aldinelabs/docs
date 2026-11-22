@@ -17,6 +17,8 @@ Each session has an approval mode at the bottom of the composer that decides whe
 | **Autonomous Work** | The approval model reviews and tries not to stop for you, except for the actions listed below |
 | **YOLO** | No permission constraints; asks you to confirm before enabling |
 
+For everyday work, **Auto Approve** is the one to pick: the approval model handles most calls for you and stops only when a decision is really yours. The first item of the approval mode menu, **How approval modes work**, opens an illustrated guide to when each mode asks you.
+
 A session or sub-session the agent starts runs in the same approval mode as the session that started it, or a stricter one, never a looser one.
 
 ## Automatic approval path
@@ -26,7 +28,9 @@ In **Auto Approve** and **Autonomous Work**, choose who reviews in **Pine Settin
 - **Model review**: every review goes to the approval model set in **Models**.
 - **Decision model** (Beta): the **Decisions screening model** screens first. Calls it allows proceed directly, and calls that need you open a card; denied calls, or calls the screening could not handle, go to the approval model for the final decision and rationale. Needs OpenRouter; model review is used until it is configured.
 
-Every automatic review is recorded. Open a tool call in the conversation, and **Review history** lists each screening or model review with the model actually used, its outcome and its reason. Outcomes are shown in bold with their own icon and color: green "Allowed", amber "Denied", blue "User confirmation required", grey "Sent for model review" and red "Review failed". The records remain when you reopen the conversation.
+When web pages, files or tool output contain instructions aimed at the agent, automatic review does not let a high-risk call through on its own, such as sending data to an address you never named; it asks you instead, and denies the call in Autonomous Work.
+
+Every automatic review is recorded. Open a tool call in the conversation, and **Review history** lists each screening or model review with the model actually used, its outcome and its reason. Outcomes are shown in bold with their own icon and color: green "Allowed", amber "Denied", blue "User confirmation required", grey "Sent for model review" and red "Review failed". The records remain when you reopen the conversation. With Guide buttons on, a call blocked by the approval model or the sandbox offers **Why was this blocked?**, which opens the guide step that explains it.
 
 ## Approval cards
 
@@ -48,11 +52,15 @@ These actions show a card in every approval mode, YOLO included:
 - **Deleting a session**: a session open in a tab stops and its tab closes. Deleting a session also deletes its sub-sessions, and the confirmation says how many.
 - **Changing a project**: creating, renaming, adding or removing folders, changing the working folder, setting the icon and accent color, or deleting it. The card's details list what will change.
 
-In **Let Me Review**, organizing session folders, starting new sessions, and reading unrelated sessions also ask first.
+In **Let Me Review**, organizing session folders and starting new sessions also ask first.
+
+When the agent reads an unrelated session, messages another session or stops another session's current turn, each one is reviewed: a card in Let Me Review, the approval model in Auto Approve and Autonomous Work, and no review in YOLO. Stopping its own sub-sessions needs no approval.
 
 ## Computer Use
 
-The first time the agent controls a desktop app or browser tab, it asks for control **for the current task**: one card in Let Me Review, and an automatic review in Auto Approve and Autonomous Work. Once granted, ordinary clicks, typing, scrolling, app switching and navigation continue without per-action reviews. The grant ends when the run finishes, you click **Stop response**, or the approval mode changes, and it is not restored when you reopen the session. OS permission requests and browser extension installation are approved separately.
+The first time the agent controls a desktop app or browser tab, it asks for control **for the current task**: one card in Let Me Review, and an automatic review in Auto Approve and Autonomous Work. Once granted, ordinary clicks, typing, scrolling, app switching and navigation continue without per-action reviews. The grant ends when the run finishes, you click **Stop response**, or the approval mode changes, and it is not restored when you reopen the session. OS permission requests and browser extension installation are approved separately. Each time the agent attaches files from this computer to a web page, a card lists the files, even after the task's control was approved (except in YOLO).
+
+Computer Use is available only while **Computer use** is on in **Pine Settings › Agent › Tools** (on by default).
 
 > [!WARNING]
 > While the grant is active, consequential actions such as payments, sending, publishing, irreversible deletion, security changes or sharing sensitive information with a new recipient rely on the agent choosing to ask you first, not on a separate check of each click. For that kind of work, stay in **Let Me Review**.

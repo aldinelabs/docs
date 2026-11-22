@@ -62,7 +62,7 @@ DeepSeek 的 **API 平台**（`platform.deepseek.com`）和它的网页聊天（
 
 **第 2 步：浏览全部模型**
 
-- 还没有连接任何提供商时，下拉里只有 **浏览所有模型…（Browse all models…）**（②），点它。
+- 还没有连接任何提供商时，下拉里只有 **浏览所有模型…（Browse all models…）**（②），点它。（最上面的 **模型怎么选（How models work）** 会打开讲解模型与模型服务的图解教程，想先了解可以点开看看。）
 
 ![“选择模型（Choose model）”下拉菜单](../../images/getting-started/pine-02-model-picker.webp)
 
@@ -102,6 +102,6 @@ DeepSeek 的 **API 平台**（`platform.deepseek.com`）和它的网页聊天（
   - `deepseek-v4-pro`：能力更强。
 - 官方的最新模型名与价格见 [DeepSeek API 文档](https://api-docs.deepseek.com/)。Pine 的模型目录随版本更新，列表里看到的名字以 Pine 为准。
 - 先用较便宜的模型把流程跑通，需要更强能力时再切换。
-- 在输入框底部的 **上下文占用（Context usage）** 里可以看到本次会话的费用，并设置 **会话成本上限（Session cost limit）**（会话费用上限），到达上限会自动停止。
+- 输入框底部的 **上下文占用（Context usage）** 旁会显示本次对话目前的花费；点开它可以设置 **会话成本上限（Session cost limit）**，到达上限会自动停止。
 - 如果你使用的是自建网关或第三方聚合服务，不在内置列表里，可以在同一个窗口选择 **添加自定义模型（Add custom model）**，填写接口地址（例如 DeepSeek 的 OpenAI 兼容地址 `https://api.deepseek.com`）、Key 和模型名。
 - 同一个 Key 想在多台电脑上用，建议为每台电脑分别创建一个 Key（比如 `Pine Mac`、`Pine Windows`），方便单独停用。

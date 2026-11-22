@@ -8,6 +8,8 @@ order: 6
 
 **Pine 设置（Pine Settings）→ 远程控制（Remote control）**（仅桌面端）让你在别的设备上使用这台电脑上的 Pine。所有远程方式都只在 Pine 运行、电脑未睡眠时可用。用微信派任务见[微信远程](wechat.md)。
 
+这台电脑上有多个 Pine 用户时，每个用户有各自的远程控制设置、已配对设备和微信绑定；只有当前正在使用 Pine 的用户的远程控制和微信远程会工作。
+
 ## 浏览器访问
 
 **浏览器访问（Browser access）** 让 Pine 在浏览器里提供完整界面，是经 Aldine 远程控制的前提。开启前需要先设置 **访问密码（Access password）**（至少 8 个字符），浏览器用它登录。
@@ -53,6 +55,7 @@ order: 6
 在 **通用（General）** 中开启 **在后台继续运行（Keep running in the background）** 后，关闭最后一个窗口，Pine 会留在菜单栏（macOS）或通知区域（Windows）。托盘菜单包括：
 
 - **打开 Pine（Open Pine）**、**快速输入（Quick composer）**
+- 有多个用户时，**切换用户（Switch User）** 列出所有用户，选择另一个会重启 Pine 并以对方身份打开
 - **浏览器访问（Browser access）**、**经 Aldine 远程控制（Remote Control via Aldine）**、**微信远程（WeChat remote）** 开关
 - **远程控制时保持电脑唤醒（Keep computer awake for remote control）**
 - **管理更多设置…（Manage more settings…）**：打开远程控制设置

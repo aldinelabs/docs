@@ -12,7 +12,9 @@ Pine 里的下面几项，都通过 **OpenRouter** 调用模型：
 - **视频生成**
 - 自动审批里的 **Decisions 初筛模型（Decisions screening model）**
 
-没有 OpenRouter 的 Key 时，这几项在设置里会显示 *尚未配置 OpenRouter（OpenRouter is not configured yet）*。如果你只聊天、处理文件，可以跳过这一页。
+没有 OpenRouter 的 Key 时，视频生成模型和 Decisions 初筛模型在设置里会显示 *尚未配置 OpenRouter（OpenRouter is not configured yet）*。如果你只聊天、处理文件，可以跳过这一页。
+
+图片生成还有另一个选择：如果你订阅了 ChatGPT，可以直接用订阅里的 **GPT Image** 生成图片，不需要 OpenRouter，见[用 ChatGPT 订阅生成图片](#用-chatgpt-订阅生成图片)。
 
 OpenRouter 是一个统一的模型接入平台：一个账号、一个 Key，就能调用来自许多厂商的模型，按用量付费，没有订阅。
 
@@ -101,7 +103,7 @@ OpenRouter 是一个统一的模型接入平台：一个账号、一个 Key，�
 **第 1 步：看看现在的状态**
 
 - 点 Pine 右上角齿轮 **打开 Pine 设置（Open Pine settings）**，在左侧点 **模型（Models）**（①）。
-- 下面的 **图像生成模型（Image generation model）**（②）和 **视频生成模型（Video generation model）**（③）此时会提示 *尚未配置 OpenRouter（OpenRouter is not configured yet）*：
+- 下面的 **图像生成模型（Image generation model）**（②）和 **视频生成模型（Video generation model）**（③）此时会提示还没有可用的服务。新版本里，图像生成模型的提示是 *在“管理服务或模型”中添加 OpenRouter 的 API 密钥，或登录 OpenAI Codex，就能开始生成图片。*，视频生成模型的提示是 *尚未配置 OpenRouter（OpenRouter is not configured yet）*：
 
 ![“模型（Models）”设置页：OpenRouter 尚未配置](../../images/getting-started/pine-or-01-models.webp)
 
@@ -132,3 +134,27 @@ OpenRouter 是一个统一的模型接入平台：一个账号、一个 Key，�
 
 - 视频、图片生成按次计费，价格因模型而异，选模型前请在 OpenRouter 的模型页面确认单价。
 - 想换 Key：回到 **管理服务或模型（Manage providers and models）**，对 OpenRouter 重新走一遍上面的第 3、4 步。
+
+## 用 ChatGPT 订阅生成图片
+
+如果你已经订阅了 ChatGPT（Plus、Pro 等付费套餐），可以让 Pine 用订阅里的 **GPT Image** 生成图片，不用另外准备 OpenRouter 余额。这个来源需要你主动选用，Pine 不会自动切换过去。
+
+**第 1 步：登录 OpenAI Codex**
+
+- 点输入框右下角的 **选择模型（Choose model）** → **浏览所有模型…（Browse all models…）** → **管理服务或模型（Manage providers and models）**。
+- 搜索 `codex`，选中 **OpenAI Codex**，按提示用你的 ChatGPT 账号登录。
+
+**第 2 步：选用 GPT Image**
+
+- 打开 **Pine 设置（Pine Settings） → 模型（Models）**，点 **图像生成模型（Image generation model）** 旁边的 **选择模型（Choose model）**。
+- 在 **ChatGPT** 分组里选 **GPT Image**。这一行写着 *ChatGPT 订阅里的最新模型 · 消耗 Codex 用量（Newest model on your ChatGPT plan · uses Codex usage）*。
+- 还没登录 OpenAI Codex 时，这一行是灰色的，并提示 *登录 OpenAI Codex 后即可使用（Sign in to OpenAI Codex to use it）*，完成第 1 步后就能选了。
+
+选好以后，在会话里让 AI 生成图片即可。审批卡片会注明这张图走的是 ChatGPT 订阅。
+
+几点说明：
+
+- **用量**：生成图片消耗的是订阅里的 Codex 用量，不扣 OpenRouter 余额。用量用完后，Pine 会给出提示，等额度恢复或换回 OpenRouter 的图像模型即可继续。
+- **模型**：ChatGPT 总是使用它当前最新的图像模型，你不需要自己挑版本；生成结果会写明这次用的是哪个模型。
+- **通道**：这个来源走的是 ChatGPT 自己的通道，而不是公开 API，所以后续版本可能会随之调整。
+- **套餐**：ChatGPT 免费套餐（Free）无法使用这个来源，需要付费订阅。

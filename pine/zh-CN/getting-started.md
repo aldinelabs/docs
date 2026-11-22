@@ -110,12 +110,16 @@ Windows 首次启动时，Pine 会先配置 **Windows 沙箱**（用来把 Agent
 - 这一步需要管理员权限，只在第一次进行。拒绝的话，Pine 无法开始工作；关闭后重新启动 Pine，会再次提示。
 - 配置完成前主窗口不会打开，等待几十秒是正常的。
 
+### 多人共用一台电脑
+
+一开始 Pine 只有一个用户，打开后直接进入主界面。如果家人或同事也想用这台电脑上的 Pine，可以在 **Pine 设置（Pine Settings）→ 多用户（Multiple users）** 中添加用户，每个人的对话、项目、记忆和模型连接各自分开。有多个用户后，Pine 打开时会先显示 **谁在使用 Pine？（Who's using Pine?）**，点自己的头像即可；勾选 **在这台电脑上记住我的选择（Remember my choice on this computer）** 后，下次会直接以上次的用户打开。
+
 ### 选择语言
 
 Pine 的界面支持简体中文、繁体中文、英文、日文、韩文、西班牙文、法文、德文和俄文。如果显示的不是你想要的语言：
 
-1. 点窗口左上或右上角的**齿轮（打开 Pine 设置 / Open Pine settings）**。
+1. 点窗口左上或右上角的**齿轮（打开 Pine 设置 / Open Pine settings）**，或按 `Cmd/Ctrl + ,`。
 2. 进入 **通用（General）→ 语言（Language）**。
 3. 在下拉框里选择。
 
-装好之后，继续[连接模型与服务](connect-models/index.md)。
+装好之后，继续[连接模型与服务](connect-models/index.md)。之后想了解某个功能怎么用，可以打开左侧栏顶部 **更多功能（More）→ 指南（Guides）** 里的图解教程。

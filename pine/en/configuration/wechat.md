@@ -19,7 +19,7 @@ order: 7
 
 Once connected, the settings show **WeChat account XXXX-XXXX** with a status: **Online**, **Connecting**, **Retrying**, **Scan again needed** or **Paused**. When a new scan is needed, click **Scan again**.
 
-One WeChat account connects to one computer. A proxy or an overseas network exit may be blocked.
+One WeChat account connects to one computer. A proxy or an overseas network exit may be blocked. When several people use Pine on this computer, each user connects their own WeChat, and only the current user's WeChat remote runs.
 
 ## Permission settings
 
@@ -41,7 +41,8 @@ Other sessions that WeChat-driven work starts or contacts are held to the same l
 - **Plain text** goes to the current session. To add to the request while the agent runs, put the text in the steering queue with `.queue`; the agent reads it at its next step.
 - **Commands** start with a dot (`.` or the Chinese full stop `。`). Send `.help` (or `.?`) for the common commands and `.h 2` for the rest.
 - Replies are formatted as Markdown, with lists and command help as narrow tables; a long reply is cut, with a note on how to see all of it.
-- Approval and question cards are numbered; send `.number` to see a card in full. An interactive answer's buttons are numbered too: reply with the number.
+- Approval and question cards are numbered; send `.number` to see a card in full. An interactive answer arrives as text, lists and tables; its buttons (or the options of its only picker) are numbered, so reply with the number. Other controls work only in Pine.
+- Costs in `.s`, `.i` and completion notices are shown in the currency chosen in Pine.
 - Tasks that reach Pine more than 10 minutes after you sent them wait until you confirm them in WeChat.
 
 ### Commands
