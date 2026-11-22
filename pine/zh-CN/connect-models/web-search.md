@@ -40,16 +40,17 @@ order: 2
 
 ![Pine 设置（Pine Settings）左侧的“智能体（Agent）”](../../images/getting-started/pine-tf-02-agent-tab.webp)
 
-滚动到 **工具与隐私（Tools & privacy）**，找到 **TinyFish 网络工具（TinyFish web tools）**（当前为 *未配置（Not configured）*），点 **添加密钥（Add key）**（③）：
+滚动到 **工具（Tools）** 一组，找到 **网页搜索（Web search）** 一行（说明末尾写着 *需添加 API 密钥才能使用。（Add an API key to use it.）*），点开关前的 **添加密钥（Add key）**（③）：
 
-![“TinyFish 网络工具（TinyFish web tools）”与“添加密钥（Add key）”](../../images/getting-started/pine-tf-03-add-key.webp)
+![“网页搜索（Web search）”与“添加密钥（Add key）”](../../images/getting-started/pine-tf-03-add-key.webp)
 
 在 **设置 TinyFish API 密钥（Set TinyFish API key）** 对话框里粘贴 Key（④），点 **保存密钥（Save key）**（⑤）：
 
 ![“设置 TinyFish API 密钥（Set TinyFish API key）”对话框](../../images/getting-started/pine-tf-04-enter-key.webp)
 
-保存后状态变为 **已配置（Configured）**，AI 就可以使用网络搜索和网页抓取了。试一下：在会话里问"搜索一下今天的某条新闻并总结"。
+保存后说明末尾变为 *已添加密钥。（Key added.）*，AI 就可以使用网络搜索和网页抓取了。试一下：在会话里问"搜索一下今天的某条新闻并总结"。
 
 - 官方说明 TinyFish 的 Search 与 Fetch 有免费额度，免费档有每分钟请求数限制，具体额度和价格以 [TinyFish 文档](https://docs.tinyfish.ai/search-api)和定价页为准。
 - 之后想更换 Key，回到同一位置点 **更改密钥（Change key）**。
+- 想暂时不让智能体上网，关掉 **网页搜索（Web search）** 一行的开关即可，从下一条消息起生效；同一组里也可以分别关闭终端命令、电脑操作等其他工具。
 - 与 API Key 的安全要求相同：不要外传。如果 Key 泄露，在 TinyFish 的 API Keys 页面点 **Regenerate key** 重新生成，再把新 Key 填进 Pine。

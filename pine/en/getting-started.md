@@ -110,12 +110,16 @@ On first launch, Pine first sets up the **Windows sandbox** (it keeps the agent'
 - This step needs administrator rights and only happens once. If you decline, Pine can't start working; close it and start it again to be prompted again.
 - The main window doesn't open until setup finishes, so waiting a few dozen seconds is normal.
 
+### Sharing one computer
+
+Pine starts with a single user and opens straight to the main window. If family members or colleagues also want to use Pine on this computer, add them under **Pine Settings → Multiple users**; each person keeps their own conversations, projects, memory and model connections. Once there are several users, Pine opens on **Who's using Pine?** first: click your avatar. Tick **Remember my choice on this computer** to open as the last user from then on.
+
 ### Choose a language
 
 Pine's interface supports Simplified Chinese, Traditional Chinese, English, Japanese, Korean, Spanish, French, German, and Russian. If it isn't in the language you want:
 
-1. Click the **gear (Open Pine settings)** at the top-left or top-right of the window.
+1. Click the **gear (Open Pine settings)** at the top-left or top-right of the window, or press `Cmd/Ctrl + ,`.
 2. Go to **General → Language**.
 3. Pick one from the drop-down.
 
-Once Pine is installed, continue with [Connect models and services](connect-models/index.md).
+Once Pine is installed, continue with [Connect models and services](connect-models/index.md). Later, whenever you want to learn how a feature works, open the illustrated guides under **More → Guides** at the top of the left sidebar.

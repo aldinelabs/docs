@@ -61,7 +61,7 @@ After it's created, the page shows the full key (starting with `sk-`) **only thi
 
 **Step 2: Browse all models**
 
-- Before any provider is connected, the drop-down contains only **Browse all models…** (②). Click it.
+- Before any provider is connected, the drop-down contains only **Browse all models…** (②). Click it. (**How models work** at the top opens an illustrated guide to models and providers, if you'd like a quick overview first.)
 
 ![Choose model drop-down](../../images/getting-started/pine-02-model-picker.webp)
 
@@ -101,6 +101,6 @@ Once connected, DeepSeek's models appear in the model list. Go back to the sessi
   - `deepseek-v4-pro`: more capable.
 - For the latest model names and prices, see the [DeepSeek API docs](https://api-docs.deepseek.com/). Pine's model catalog updates with each release, and the names you see in the list are the ones Pine knows.
 - Get the flow working with a cheaper model first, and switch to a stronger one when you need it.
-- **Context usage** at the bottom of the input box shows this session's cost and lets you set a **Session cost limit**; when the limit is reached, the session stops automatically.
+- The conversation's cost so far appears next to **Context usage** at the bottom of the input box; click it to set a **Session cost limit**. When the limit is reached, the session stops automatically.
 - If you use a self-hosted gateway or a third-party aggregator that isn't in the built-in list, choose **Add custom model** in the same window and fill in the endpoint address (for example DeepSeek's OpenAI-compatible address `https://api.deepseek.com`), the key, and the model name.
 - To use the same key on several computers, create one key per computer (for example `Pine Mac` and `Pine Windows`) so you can disable them individually.

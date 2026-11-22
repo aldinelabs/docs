@@ -8,6 +8,8 @@ order: 6
 
 **Pine Settings › Remote control** (desktop app only) lets you use the Pine on this computer from other devices. Every remote option works only while Pine is running and the computer is awake. To send tasks from WeChat, see [WeChat remote](wechat.md).
 
+When several people use Pine on this computer, each user has their own remote control settings, paired devices and WeChat binding; only the remote control and WeChat remote of the user Pine is running as are active.
+
 ## Browser access
 
 **Browser access** serves Pine's full interface to a browser, and is required for remote control through Aldine. Before turning it on, set an **Access password** (at least 8 characters) that browsers sign in with.
@@ -53,6 +55,7 @@ On a phone:
 With **Keep running in the background** on in **General**, closing the last window keeps Pine in the menu bar (macOS) or notification area (Windows). The tray menu has:
 
 - **Open Pine** and **Quick composer**
+- With more than one user, **Switch User** lists every user; picking another restarts Pine as them
 - Switches for **Browser access**, **Remote Control via Aldine** and **WeChat remote**
 - **Keep computer awake for remote control**
 - **Manage more settings…**, which opens the Remote control settings

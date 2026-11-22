@@ -8,6 +8,9 @@ order: 30
 
 Once a model is connected, start using Pine for real here.
 
+> [!TIP]
+> Pine comes with illustrated guides that explain approvals, context, models, memory, the workbench and more with animated pictures and plain steps. Browse them all by topic under **More → Guides** at the top of the left sidebar; the approval mode menu, the model menu and Context usage also link to their guides. The first time a feature shows up, a short tip appears beside it: click **Show me** to open the related guide, or **Got it** to dismiss it.
+
 ## Create your first project
 
 A **project** is a set of folders the agent can access, plus that project's own sessions, Skills, and settings. The agent can only read and write the folders you authorize.
@@ -27,21 +30,25 @@ If you don't want to create a project, you can also just start a new session. Th
 ## Start your first session
 
 1. Click **New session** in the left sidebar (or press `Cmd/Ctrl + N`).
-2. At the bottom of the input box, confirm the **project** (shown as "Send to {project name}") and the **model** are what you want.
+2. At the bottom of the input box, confirm the **project** (shown as "Send to {project name}") and the **model** are what you want. Press `Cmd/Ctrl + I` to open the model menu directly; when the model offers it, the menu also lets you set the **Reasoning effort**.
 3. Type your task, for example:
    - "Read the files in this folder and tell me what each one is for."
    - "Add up the monthly totals in `sales.xlsx` and put them in a new table."
-4. Click send, or press Enter.
+4. Click send, or press Enter. To tidy up a quickly written request first, click **Optimize prompt** or press `Cmd/Ctrl + Enter`: Pine rewrites it into a clearer, more specific prompt and leaves details only you know as `[[…]]` blanks. If you don't like the result, click **Undo optimization** to get your text back.
 5. The session shows the agent's thinking, which files it read, and which tools it called. Click any tool call to expand its details (status, parameters, result).
 6. Click a file name to preview the file right in the workspace (text, code, PDF, Office documents, spreadsheets, images, and more). The agent operates on exactly the files you see.
 
 **You can stop at any time**: while the agent works, the send button turns into **Stop response**; you can also type a new message and choose **Steer response** to redirect it without interrupting the task.
 
+**Reply suggestions**: after the agent answers, up to three suggested next messages fade into the input box; switch between them with `↑` / `↓` in the empty input box and press `Tab` to use one. You can turn them off under **Settings → Agent → Reply suggestions**.
+
+**Cost**: next to **Context usage** at the bottom of the input box, Pine shows what the conversation has cost so far (in the currency chosen under Settings → General). Click it to see context usage and set a **Session cost limit**.
+
 **Attachments**: click **Add attachment** in the input box to add files, folders, or other sessions; you can also drag files in or paste images.
 
 ## Understand permissions and approvals
 
-At the bottom of the input box there is an **approval mode** that decides whether the agent asks you before acting:
+At the bottom of the input box there is an **approval mode** (press `Cmd/Ctrl + R` to open it) that decides whether the agent asks you before acting. The menu's first item, **How approval modes work**, opens an illustrated guide comparing the modes.
 
 | Mode | Meaning | Good for |
 | --- | --- | --- |
@@ -56,7 +63,7 @@ When a decision is needed, an **Approval required** card appears above the input
 - **Reject**: refuse it;
 - **Reject with guidance**: refuse and tell it what to do instead.
 
-For **Computer Use**, permission covers computer control for the current task. **Let Me Review** asks once at the first control action; **Auto Approve** and **Autonomous Work** review that task permission automatically. After approval, ordinary clicks, typing, scrolling, switching apps, and browser navigation continue without individual reviews. The permission expires when the run finishes, you use **Stop response**, or you change approval mode; reopening a session does not restore it. OS permission requests and browser extension installation still need separate approval.
+For **Computer Use**, permission covers computer control for the current task. **Let Me Review** asks once at the first control action; **Auto Approve** and **Autonomous Work** review that task permission automatically. After approval, ordinary clicks, typing, scrolling, switching apps, and browser navigation continue without individual reviews. The permission expires when the run finishes, you use **Stop response**, or you change approval mode; reopening a session does not restore it. OS permission requests, browser extension installation, and attaching files from this computer to a web page still need separate approval.
 
 The agent is instructed to pause before payments, sending messages, publishing, irreversible deletion, security changes, or sharing sensitive information with a new recipient unless you already authorized the specific action. This relies on the executing model's judgment; Pine does not independently check the risk of each click. Computer control can reach apps and browser content outside the project folders.
 
@@ -74,16 +81,20 @@ None of these are required; come back to them when you need them. For a full exp
 
 | What you want to do | Where |
 | --- | --- |
-| Change interface language, display currency, completion sound, notifications | Gear → **General** |
+| Change interface language, display currency, completion sound, notifications, guide buttons and one-time tips | Gear → **General** |
 | Light / dark mode, accent color, reading font | Gear → **Appearance** |
-| Models for title generation, approval, and image generation | Gear → **Models** |
-| Interactive answers (enabled by default), web search and fetching (TinyFish key), context compaction, approximate location | Gear → **Agent** |
-| Nickname, communication style, custom instructions (so the agent knows you better) | Gear → **User profile** |
+| Models for title generation, approval, prompt optimization, and image generation | Gear → **Models** |
+| Interactive answers, reply suggestions, memory across sessions, approximate location, context compaction | Gear → **Agent → Behavior** |
+| Switch off groups of agent tools (such as shell commands, web search, computer use), set the TinyFish key | Gear → **Agent → Tools** |
+| Name, communication style, work style, Aldine methodology, custom instructions (so the agent knows you better) | Gear → **User profile** |
 | Global shortcut to bring up the quick composer | Gear → **General → Quick composer** |
 | Keep running in the background after closing the window (so automations keep working) | Gear → **General → Keep running in the background** |
-| Automations (scheduled or folder-change-triggered unattended tasks) | Bottom of the left sidebar: **Automations** |
-| Skills (reusable ways of working) | Bottom of the left sidebar: **Skills** |
-| MCP servers (connect external tools) | Bottom of the left sidebar: **MCP servers** |
+| Share one computer with family or colleagues, each with their own conversations, projects and model connections | Gear → **Multiple users** |
+| See the version, check for updates | Gear → **About** |
+| Automations (scheduled or folder-change-triggered unattended tasks) | Top of the left sidebar: **More → Automations** |
+| Skills (reusable ways of working) | Top of the left sidebar: **More → Skills** |
+| MCP servers (connect external tools) | Top of the left sidebar: **More → MCP servers** |
+| See and edit what Pine remembers across sessions | Top of the left sidebar: **More → Memory** |
 | Use Pine on this computer remotely from a phone or another device | Gear → **Remote control** (QR-code pairing, no port forwarding, end-to-end encrypted; turn on Browser access first) |
 
 ### Remote Control on phones and the Home Screen
@@ -101,9 +112,15 @@ While connected, tap **Switch computer** to return to the computer list, choose 
 | `Mod + N` / `Mod + T` | New session tab |
 | `Mod + W` | Close tab |
 | `Mod + K` | Search all sessions |
+| `Mod + ,` | Open Pine Settings |
 | `Mod + P` | Project settings |
 | `Mod + B` | Show / hide the left sidebar |
 | `Mod + Alt + B` | Show / hide the right workbench |
 | `Mod + L` | Focus the input box |
+| `Mod + R` | Open the approval mode menu |
+| `Mod + I` | Open the model menu |
+| `Mod + Enter` | Optimize prompt |
+
+See [Keyboard shortcuts](configuration/shortcuts.md) for the full list.
 
 If something goes wrong, see [Maintenance and troubleshooting](maintenance.md).

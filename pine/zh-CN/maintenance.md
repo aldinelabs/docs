@@ -10,13 +10,17 @@ order: 40
 
 ### 更新
 
-有新版本时，Pine 会弹出**更新对话框**，显示更新内容并让你安装。一次跨越多个版本时，对话框会从新到旧列出每个版本的更新内容。也可以随时回到发布页下载最新安装包，直接覆盖安装，数据不会丢失。
+Pine 每隔两小时会检查一次更新。有新版本时，Pine 会弹出**更新对话框**，显示更新内容并让你安装。一次跨越多个版本时，对话框会从新到旧列出每个版本的更新内容。
+
+想马上检查，或查看当前版本号，打开 **Pine 设置（Pine Settings）→ 关于（About）**：这里显示“版本 X.Y.Z”，点 **检查更新（Check for updates）** 即可；已是最新时会显示“Pine 已是最新版本。”。同一页还有使用文档、更新日志和反馈问题的链接。
+
+也可以随时回到发布页下载最新安装包，直接覆盖安装，数据不会丢失。
 
 ### 数据位置
 
 | 内容 | 位置 |
 | --- | --- |
-| 项目、会话、设置、模型凭据 | 系统的应用数据目录（macOS：`~/Library/Application Support/` 下的 Pine 目录；Windows：`%APPDATA%` 下的 Pine 目录） |
+| 项目、会话、设置、模型凭据（有多个用户时也包括每个用户的数据） | 系统的应用数据目录（macOS：`~/Library/Application Support/` 下的 Pine 目录；Windows：`%APPDATA%` 下的 Pine 目录） |
 | 你授权的文件夹 | 就是你自己的文件夹，Pine 不会搬走它 |
 
 > [!NOTE]
@@ -24,7 +28,7 @@ order: 40
 
 ### 完全退出
 
-如果开启了"后台运行"，关闭窗口并不会退出 Pine。要彻底退出：点菜单栏（macOS）或通知区域（Windows）的 Pine 图标 → **退出 Pine（Quit Pine）**。自动化和远程控制只在 Pine 运行时工作。
+如果开启了"后台运行"，关闭窗口并不会退出 Pine。要彻底退出：点菜单栏（macOS）或通知区域（Windows）的 Pine 图标 → **退出 Pine（Quit Pine）**。自动化和远程控制只在 Pine 运行时工作。Pine 已在运行时再次打开它，会回到已有的窗口，不会另外启动一个 Pine。
 
 ### 卸载
 
@@ -48,7 +52,7 @@ order: 40
 多数是网络问题：确认能打开服务商官网，必要时为系统配置可用的代理后重启 Pine。
 
 **费用涨得比预期快。**
-在 Context usage 里查看本次会话的费用，并设置 **会话成本上限（Session cost limit）**。长会话可以点 **立即压缩上下文（Compact context now）** 压缩上下文，或新开一个会话。
+输入框底部的 **上下文占用（Context usage）** 旁会显示本次对话的花费；点开它可以设置 **会话成本上限（Session cost limit）**。长会话可以点 **立即压缩上下文（Compact context now）** 压缩上下文，或新开一个会话。
 
 **Agent 说没有权限访问某个文件。**
 它只能访问项目授权的文件夹。到 **Pine 设置（Pine Settings）→ 项目管理（Projects）→ 编辑（Edit）** 添加该文件夹，并按需选择"只读"或"读写"。
@@ -57,6 +61,6 @@ order: 40
 关闭审批更宽松的模式，切回 **让我过目（Let Me Review）**；重要文件先备份，或把资料文件夹设为"只读"。
 
 **想反馈问题。**
-到 GitHub 提交 Issue：https://github.com/aldinelabs/pine/issues 。请附上 Pine 版本号、系统版本、问题现象，以及不含敏感信息的截图。**不要**在 Issue 里贴 API Key。
+到 GitHub 提交 Issue：https://github.com/aldinelabs/pine/issues 。也可以在 **Pine 设置（Pine Settings）→ 关于（About）** 中点 **反馈问题（Report an issue）** 直接打开。请附上 Pine 版本号（同一页可以看到）、系统版本、问题现象，以及不含敏感信息的截图。**不要**在 Issue 里贴 API Key。
 
 想在服务器上运行或从源码构建，见[进阶安装](advanced/index.md)。
