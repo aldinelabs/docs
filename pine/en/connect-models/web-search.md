@@ -40,16 +40,17 @@ Click **Agent** on the left (②):
 
 ![Agent on the left of Pine Settings](../../images/getting-started/pine-tf-02-agent-tab.webp)
 
-Scroll to **Tools & privacy**, find **TinyFish web tools** (currently *Not configured*), and click **Add key** (③):
+Scroll to the **Tools** group, find the **Web search** row (its description ends with *Add an API key to use it.*), and click **Add key** before its switch (③):
 
-![TinyFish web tools and Add key](../../images/getting-started/pine-tf-03-add-key.webp)
+![Web search and Add key](../../images/getting-started/pine-tf-03-add-key.webp)
 
 In the **Set TinyFish API key** dialog, paste the key (④) and click **Save key** (⑤):
 
 ![Set TinyFish API key dialog](../../images/getting-started/pine-tf-04-enter-key.webp)
 
-After saving, the status changes to **Configured**, and the AI can use web search and page fetching. Try it: in a session, ask "Search for today's news about something and summarize it."
+After saving, the description ends with *Key added.*, and the AI can use web search and page fetching. Try it: in a session, ask "Search for today's news about something and summarize it."
 
 - TinyFish states that Search and Fetch have a free allowance, with a requests-per-minute limit on the free tier. For exact allowances and prices, see the [TinyFish docs](https://docs.tinyfish.ai/search-api) and its pricing page.
 - To change the key later, go back to the same place and click **Change key**.
+- To keep the agent off the web for a while, turn off the **Web search** row's switch; it applies from your next message. The same group lets you switch off other tools too, such as shell commands and computer use.
 - The same security rule as any API key applies: don't share it. If it leaks, click **Regenerate key** on TinyFish's API Keys page and enter the new key in Pine.

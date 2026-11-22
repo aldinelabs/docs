@@ -6,7 +6,7 @@ order: 2
 
 # Run on a server
 
-Pine can run without a window on a macOS or Linux server and provide only the browser interface. It is the same application core as the desktop app; the only difference is the host capabilities: there is no window, system notifications, quick composer, auto-update, or Computer Use.
+Pine can run without a window on a macOS or Linux server and provide only the browser interface. It is the same application core as the desktop app; the only difference is the host capabilities: there is no window, system notifications, quick composer, auto-update, Computer Use, or Live Context.
 
 ## Build and run
 
@@ -138,7 +138,7 @@ A running server applies a change when it receives `SIGHUP` (`kill -HUP <pid>`) 
 - Project folders are paths on the server. Files you move to Trash in the browser go into `trash/` under the data directory and aren't deleted.
 - Approximate location is estimated from the server's public IP, which on a cloud host is usually the data center's location; you can turn it off in settings if needed.
 - macOS and Linux are supported (tested in a Debian 12 container). Windows isn't supported, because its sandbox needs the desktop app's one-time elevated setup.
-- The server is single-user: every signed-in browser shares the same projects, sessions, and settings.
+- The server is single-user: every signed-in browser shares the same projects, sessions, and settings, and the desktop app's Multiple users isn't available here. To keep people apart, run separate servers with different `--data-dir` values.
 
 ## Linux sandbox
 
