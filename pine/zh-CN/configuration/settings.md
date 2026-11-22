@@ -45,7 +45,8 @@ order: 1
   - 密钥或请求头写成 `!命令` 形式的供应商会被跳过，Pine 不会执行其中的命令。
 - **标题生成模型（Title generation model）**：为新会话起标题。
 - **审批模型（Approval model）**：在 **自动审批（Auto Approve）** 和 **自主工作（Autonomous Work）** 模式下审核工具调用，并在把调用交给你时用白话解读操作。详见[审批与自动审核](approvals.md)。
-- **图像生成模型（Image generation model）**、**视频生成模型（Video generation model）**：智能体生成图片或视频时使用，需要先配置 OpenRouter，见[媒体生成](../connect-models/media-generation.md)。
+- **图像生成模型（Image generation model）**：智能体生成图片时使用。可以选 OpenRouter 上的图像模型，也可以在 **ChatGPT** 分组里选 **GPT Image**，用 ChatGPT 订阅生成图片（需要登录 OpenAI Codex，消耗订阅的 Codex 用量，不会被自动选用）。见[媒体生成](../connect-models/media-generation.md)。
+- **视频生成模型（Video generation model）**：智能体生成视频时使用，需要先配置 OpenRouter，见[媒体生成](../connect-models/media-generation.md)。
 - **Decisions 初筛模型（Decisions screening model）**：自动审批路径选择 **基于决策模型（Decision model）** 时用来初筛的模型。
 
 ## 智能体（Agent）

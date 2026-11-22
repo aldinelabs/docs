@@ -12,7 +12,9 @@ Pine's features below all call models through **OpenRouter**:
 - **Video generation**
 - The **Decisions screening model** used by automatic approval
 
-Without an OpenRouter key, these items show *OpenRouter is not configured yet* in settings. If you only chat and work with files, you can skip this page.
+Without an OpenRouter key, the video generation model and the Decisions screening model show *OpenRouter is not configured yet* in settings. If you only chat and work with files, you can skip this page.
+
+Image generation has another option: if you subscribe to ChatGPT, you can make pictures with **GPT Image** on your plan, no OpenRouter needed. See [Generate images with your ChatGPT plan](#generate-images-with-your-chatgpt-plan).
 
 OpenRouter is a unified model-access platform: one account and one key give you models from many vendors, billed by usage with no subscription.
 
@@ -101,7 +103,7 @@ The full key is again **shown only once** after creation, so copy it right away.
 **Step 1: Look at the current state**
 
 - Click the gear **Open Pine settings** at the top right of Pine, then click **Models** on the left (①).
-- **Image generation model** (②) and **Video generation model** (③) below show *OpenRouter is not configured yet*:
+- **Image generation model** (②) and **Video generation model** (③) below say no provider is set up yet. In current versions, the image generation model reads *Add an OpenRouter API key or sign in to OpenAI Codex under “Manage providers and models” to start making images.*, and the video generation model reads *OpenRouter is not configured yet*:
 
 ![Models settings page: OpenRouter not configured yet](../../images/getting-started/pine-or-01-models.webp)
 
@@ -132,3 +134,27 @@ Once connected:
 
 - Image and video generation are billed per use, and prices vary by model. Check the unit price on OpenRouter's model page before choosing.
 - To change the key, go back to **Manage providers and models** and repeat steps 3 and 4 above for OpenRouter.
+
+## Generate images with your ChatGPT plan
+
+If you already have a paid ChatGPT plan (Plus, Pro and so on), Pine can make pictures with **GPT Image** on that plan, with no OpenRouter balance needed. You choose this source yourself; Pine never switches to it automatically.
+
+**Step 1: Sign in to OpenAI Codex**
+
+- Click **Choose model** at the bottom right of the input box → **Browse all models…** → **Manage providers and models**.
+- Search for `codex`, pick **OpenAI Codex**, and sign in with your ChatGPT account when prompted.
+
+**Step 2: Pick GPT Image**
+
+- Open **Pine Settings → Models** and click **Choose model** next to **Image generation model**.
+- Under the **ChatGPT** group, pick **GPT Image**. Its row reads *Newest model on your ChatGPT plan · uses Codex usage*.
+- Until you sign in to OpenAI Codex, the row is greyed out with *Sign in to OpenAI Codex to use it*; after step 1 you can pick it.
+
+After that, just ask the AI to generate an image in a session. The approval card notes that the picture runs on your ChatGPT subscription.
+
+A few notes:
+
+- **Usage**: pictures draw on your plan's Codex usage instead of an OpenRouter balance. If the usage runs out, Pine tells you, and you can wait for it to refill or switch back to an OpenRouter image model.
+- **Model**: ChatGPT always uses its newest image model, so there's no version to pick; the result names the model it used.
+- **Route**: this source uses ChatGPT's own route rather than a public API, so a later update may adjust it.
+- **Plans**: the ChatGPT Free plan can't use this source; you need a paid plan.

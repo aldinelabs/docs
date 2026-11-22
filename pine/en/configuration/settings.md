@@ -45,7 +45,8 @@ To connect models, see [Connect models](../connect-models/index.md). These optio
   - A provider whose key or header is written as a `!command` is skipped; Pine never runs it.
 - **Title generation model**: names new sessions.
 - **Approval model**: reviews tool calls in **Auto Approve** and **Autonomous Work**, and explains operations plainly when it hands a call to you. See [Approvals and automatic review](approvals.md).
-- **Image generation model** and **Video generation model**: used when the agent generates images or video; they need OpenRouter. See [Media generation](../connect-models/media-generation.md).
+- **Image generation model**: used when the agent generates images. Pick an OpenRouter image model, or **GPT Image** under the **ChatGPT** group to make pictures on your ChatGPT plan (it needs the OpenAI Codex sign-in, uses the plan's Codex usage, and is never picked automatically). See [Media generation](../connect-models/media-generation.md).
+- **Video generation model**: used when the agent generates video; it needs OpenRouter. See [Media generation](../connect-models/media-generation.md).
 - **Decisions screening model**: the model that screens calls when the automatic approval path is **Decision model**.
 
 ## Agent
